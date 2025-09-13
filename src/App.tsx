@@ -12,6 +12,7 @@ import Agents from "./pages/Agents";
 import Settings from "./pages/Settings";
 import Auth from "./pages/Auth";
 import Subscription from "./pages/Subscription";
+import Docs from "./pages/Docs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -86,6 +87,7 @@ const AppRoutes = () => (
         <Subscription />
       </ProtectedRoute>
     } />
+    <Route path="/docs" element={<Docs />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

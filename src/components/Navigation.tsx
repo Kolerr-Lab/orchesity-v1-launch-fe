@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap, Bot, BarChart3, Settings } from "lucide-react";
+import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logout, isAuthenticated } = useAuth();
 
   const navItems = [
     { label: "Dashboard", href: "/dashboard", icon: BarChart3 },
     { label: "Agents", href: "/agents", icon: Bot },
+    { label: "Documentation", href: "/docs", icon: BookOpen },
     { label: "Settings", href: "/settings", icon: Settings },
   ];
 
@@ -30,26 +33,55 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
+            {isAuthenticated ? (
+              navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                >
+                  <item.icon className="h-4 w-4" />
+                  <span>{item.label}</span>
+                </Link>
+              ))
+            ) : (
               <Link
-                key={item.href}
-                to={item.href}
+                to="/docs"
                 className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
               >
-                <item.icon className="h-4 w-4" />
-                <span>{item.label}</span>
+                <BookOpen className="h-4 w-4" />
+                <span>Documentation</span>
               </Link>
-            ))}
+            )}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons / User Menu */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
-              Sign In
-            </Button>
-            <Button variant="hero" size="sm" className="glow-primary">
-              Get Started
-            </Button>
+            {isAuthenticated ? (
+              <>
+                <div className="flex items-center space-x-2 text-sm">
+                  <User className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-muted-foreground">{user?.name}</span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={logout} className="gap-2">
+                  <LogOut className="h-4 w-4" />
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="ghost" size="sm">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/auth">
+                  <Button variant="hero" size="sm" className="glow-primary">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,25 +105,62 @@ const Navigation = () => {
           )}
         >
           <div className="pt-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                onClick={() => setIsOpen(false)}
-              >
-                <item.icon className="h-4 w-4" />
-                <span>{item.label}</span>
-              </Link>
-            ))}
-            <div className="pt-4 space-y-2">
-              <Button variant="ghost" size="sm" className="w-full justify-start">
-                Sign In
-              </Button>
-              <Button variant="hero" size="sm" className="w-full">
-                Get Started
-              </Button>
-            </div>
+            {isAuthenticated ? (
+              <>
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                ))}
+                <div className="pt-4 border-t border-border/20">
+                  <div className="flex items-center space-x-2 px-4 py-2 text-sm text-muted-foreground">
+                    <User className="h-4 w-4" />
+                    <span>{user?.name}</span>
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="w-full justify-start gap-2 mt-2" 
+                    onClick={() => {
+                      logout();
+                      setIsOpen(false);
+                    }}
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Logout
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/docs"
+                  className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <BookOpen className="h-4 w-4" />
+                  <span>Documentation</span>
+                </Link>
+                <div className="pt-4 space-y-2">
+                  <Link to="/auth" onClick={() => setIsOpen(false)}>
+                    <Button variant="ghost" size="sm" className="w-full justify-start">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link to="/auth" onClick={() => setIsOpen(false)}>
+                    <Button variant="hero" size="sm" className="w-full">
+                      Get Started
+                    </Button>
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
