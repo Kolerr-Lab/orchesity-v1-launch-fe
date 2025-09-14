@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity } from "lucide-react";
-import logoImage from "@/assets/logo.png";
+import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
@@ -25,13 +24,9 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-2 group">
             <div className="relative">
-              <img 
-                src={logoImage} 
-                alt="Orchesity Logo" 
-                className="h-10 w-10 group-hover:scale-105 transition-transform duration-200" 
-              />
+              <Zap className="h-8 w-8 text-primary group-hover:text-primary-glow transition-colors" />
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <span className="text-xl font-bold gradient-text-primary">
