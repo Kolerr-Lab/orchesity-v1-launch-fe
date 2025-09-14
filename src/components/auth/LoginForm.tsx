@@ -42,7 +42,7 @@ export const LoginForm = ({ onToggleMode }: LoginFormProps) => {
     <Card className="glass border-border/20 max-w-md mx-auto">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl gradient-text-primary">Welcome Back</CardTitle>
-        <CardDescription>Sign in to your Orchesity account</CardDescription>
+        <CardDescription>Sign in to your OrchesityAI account</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">

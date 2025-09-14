@@ -43,7 +43,7 @@ export const SignupForm = ({ onToggleMode }: SignupFormProps) => {
     <Card className="glass border-border/20 max-w-md mx-auto">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl gradient-text-primary">Create Account</CardTitle>
-        <CardDescription>Get started with Orchesity AI Platform</CardDescription>
+        <CardDescription>Get started with OrchesityAI Platform</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
