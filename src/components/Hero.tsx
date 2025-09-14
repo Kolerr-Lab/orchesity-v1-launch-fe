@@ -50,7 +50,7 @@ const Hero = () => {
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
             Deploy, manage, and scale AI agents with RAG-enabled intelligence. 
             From simple automation to complex multi-agent workflows, 
-            Orchesity makes AI orchestration effortless.
+            OrchesityAI makes AI orchestration effortless.
           </p>
 
           {/* CTA Buttons */}

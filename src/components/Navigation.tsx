@@ -26,11 +26,15 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="relative">
-              <Zap className="h-8 w-8 text-primary group-hover:text-primary-glow transition-colors" />
+              <img 
+                src="/logo-symbol.png" 
+                alt="OrchesityAI Symbol" 
+                className="h-8 w-8 filter brightness-0 invert group-hover:brightness-75 transition-all"
+              />
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <span className="text-xl font-bold gradient-text-primary">
-              Orchesity
+              OrchesityAI
             </span>
           </Link>
 
