@@ -14,6 +14,8 @@ import Plugins from "./pages/Plugins";
 import Metrics from "./pages/Metrics";
 import Settings from "./pages/Settings";
 import Auth from "./pages/Auth";
+import AuthCallback from "./pages/AuthCallback";
+import ResetPassword from "./pages/ResetPassword";
 import Subscription from "./pages/Subscription";
 import Docs from "./pages/Docs";
 import NotFound from "./pages/NotFound";
@@ -68,6 +70,16 @@ const AppRoutes = () => (
     <Route path="/auth" element={
       <PublicRoute>
         <Auth />
+      </PublicRoute>
+    } />
+    <Route path="/auth/callback/:provider" element={
+      <PublicRoute>
+        <AuthCallback />
+      </PublicRoute>
+    } />
+    <Route path="/reset-password" element={
+      <PublicRoute>
+        <ResetPassword />
       </PublicRoute>
     } />
     <Route path="/dashboard" element={

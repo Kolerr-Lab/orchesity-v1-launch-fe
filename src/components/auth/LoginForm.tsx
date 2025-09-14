@@ -4,7 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 import { Loader2, Mail, Lock } from 'lucide-react';
+import { OAuthButtons } from './OAuthButtons';
+import { ForgotPasswordForm } from './ForgotPasswordForm';
 
 interface LoginFormProps {
   onToggleMode: () => void;
@@ -14,7 +17,12 @@ export const LoginForm = ({ onToggleMode }: LoginFormProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   const { login } = useAuth();
+
+  if (showForgotPassword) {
+    return <ForgotPasswordForm onBack={() => setShowForgotPassword(false)} />;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,6 +80,17 @@ export const LoginForm = ({ onToggleMode }: LoginFormProps) => {
             />
           </div>
 
+          <div className="text-right">
+            <button
+              type="button"
+              onClick={() => setShowForgotPassword(true)}
+              className="text-sm text-primary hover:underline"
+              disabled={isLoading}
+            >
+              Forgot password?
+            </button>
+          </div>
+
           <Button 
             type="submit" 
             className="w-full" 
@@ -82,6 +101,17 @@ export const LoginForm = ({ onToggleMode }: LoginFormProps) => {
             Sign In
           </Button>
 
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <Separator className="w-full" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+            </div>
+          </div>
+
+          <OAuthButtons disabled={isLoading} />
+
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
               Don't have an account?{' '}
@@ -89,6 +119,7 @@ export const LoginForm = ({ onToggleMode }: LoginFormProps) => {
                 type="button"
                 onClick={onToggleMode}
                 className="text-primary hover:underline font-medium"
+                disabled={isLoading}
               >
                 Sign up
               </button>

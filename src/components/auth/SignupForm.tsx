@@ -4,7 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 import { Loader2, Mail, Lock, User } from 'lucide-react';
+import { OAuthButtons } from './OAuthButtons';
 
 interface SignupFormProps {
   onToggleMode: () => void;
@@ -123,6 +125,17 @@ export const SignupForm = ({ onToggleMode }: SignupFormProps) => {
             Create Account
           </Button>
 
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <Separator className="w-full" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+            </div>
+          </div>
+
+          <OAuthButtons disabled={isLoading} />
+
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
               Already have an account?{' '}
@@ -130,6 +143,7 @@ export const SignupForm = ({ onToggleMode }: SignupFormProps) => {
                 type="button"
                 onClick={onToggleMode}
                 className="text-primary hover:underline font-medium"
+                disabled={isLoading}
               >
                 Sign in
               </button>
