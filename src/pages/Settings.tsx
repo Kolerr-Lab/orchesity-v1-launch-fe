@@ -39,26 +39,28 @@ const Settings = () => {
                   Update your personal information and preferences
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="First name" />
+              <CardContent className="space-y-6 relative">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3 relative">
+                    <Label htmlFor="firstName" className="block text-foreground font-semibold relative z-10 bg-background/80 backdrop-blur-sm px-1">First Name</Label>
+                    <Input id="firstName" placeholder="Enter your first name" className="relative z-0 bg-background border-border/40" />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Last name" />
+                  <div className="space-y-3 relative">
+                    <Label htmlFor="lastName" className="block text-foreground font-semibold relative z-10 bg-background/80 backdrop-blur-sm px-1">Last Name</Label>
+                    <Input id="lastName" placeholder="Enter your last name" className="relative z-0 bg-background border-border/40" />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="your@email.com" />
+                <div className="space-y-3 relative">
+                  <Label htmlFor="email" className="block text-foreground font-semibold relative z-10 bg-background/80 backdrop-blur-sm px-1">Email Address</Label>
+                  <Input id="email" type="email" placeholder="Enter your email address" className="relative z-0 bg-background border-border/40" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
-                  <Input id="company" placeholder="Company name" />
+                <div className="space-y-3 relative">
+                  <Label htmlFor="company" className="block text-foreground font-semibold relative z-10 bg-background/80 backdrop-blur-sm px-1">Company Name</Label>
+                  <Input id="company" placeholder="Enter your company name" className="relative z-0 bg-background border-border/40" />
                 </div>
-                <Button variant="hero">Save Changes</Button>
+                <div className="pt-4">
+                  <Button variant="hero">Save Changes</Button>
+                </div>
               </CardContent>
             </Card>
 
