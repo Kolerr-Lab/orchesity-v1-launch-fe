@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity, Calculator } from "lucide-react";
+import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity, Calculator, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
@@ -23,6 +23,7 @@ const Navigation = () => {
     { label: "Documentation", href: "/docs", icon: BookOpen },
     { label: "Cost Calculator", href: "/cost-calculator", icon: Calculator },
     { label: "Pricing", href: "/subscription", icon: Zap },
+    { label: "Contact", href: "/contact", icon: MessageCircle },
   ];
 
   return (
