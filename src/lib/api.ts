@@ -33,6 +33,66 @@ export interface Agent {
   plugins: string[];
   createdAt: string;
   lastUsed?: string;
+  config?: AgentConfig;
+}
+
+export interface AgentConfig {
+  temperature?: number;
+  maxTokens?: number;
+  ragEnabled?: boolean;
+  srtEnabled?: boolean;
+  rcpdEnabled?: boolean;
+  provider?: string;
+  batchSize?: number;
+  semanticCache?: boolean;
+  subAgents?: string[];
+}
+
+export interface OrchestrationRequest {
+  prompt: string;
+  agentId?: string;
+  config?: {
+    temperature?: number;
+    maxTokens?: number;
+    provider?: string;
+    enableRag?: boolean;
+    enableSrt?: boolean;
+    enableRcpd?: boolean;
+    context?: any;
+  };
+}
+
+export interface BatchRequest {
+  requests: OrchestrationRequest[];
+  batchId?: string;
+}
+
+export interface PluginInfo {
+  id: string;
+  name: string;
+  description: string;
+  version: string;
+  status: 'active' | 'inactive';
+  capabilities: string[];
+}
+
+export interface Metrics {
+  totalRequests: number;
+  activeAgents: number;
+  avgResponseTime: number;
+  uptime: number;
+  requestsPerHour: number;
+  errorRate: number;
+}
+
+export interface LogEntry {
+  id: string;
+  timestamp: string;
+  level: 'info' | 'warn' | 'error' | 'debug';
+  message: string;
+  agentId?: string;
+  userId?: string;
+  metadata?: any;
 }
 
 class ApiService {
@@ -105,27 +165,75 @@ class ApiService {
           createdAt: '2024-01-01T00:00:00Z'
         }
       },
-      '/agents': {
+      '/list': {
         data: [
           { 
             id: '1', 
             name: 'Customer Support Bot', 
-            description: 'Handles customer inquiries with advanced NLP',
+            description: 'Handles customer inquiries with RAG-enabled knowledge base',
             status: 'active',
             model: 'gpt-4',
-            plugins: ['zendesk', 'slack'],
+            plugins: ['zendesk', 'slack', 'rag'],
             createdAt: '2024-01-01T00:00:00Z',
-            lastUsed: '2024-01-15T10:30:00Z'
+            lastUsed: '2024-01-15T10:30:00Z',
+            config: {
+              temperature: 0.7,
+              maxTokens: 2048,
+              ragEnabled: true,
+              srtEnabled: false,
+              rcpdEnabled: true,
+              provider: 'openai',
+              batchSize: 10,
+              semanticCache: true
+            }
           },
           { 
             id: '2', 
-            name: 'Sales Assistant', 
-            description: 'Helps with lead qualification and follow-ups',
-            status: 'inactive',
+            name: 'RAG Research Assistant', 
+            description: 'Advanced research with retrieval-augmented generation',
+            status: 'active',
             model: 'claude-3',
-            plugins: ['salesforce', 'hubspot'],
+            plugins: ['rag', 'websearch', 'pdf'],
             createdAt: '2024-01-05T00:00:00Z',
-            lastUsed: '2024-01-14T14:20:00Z'
+            lastUsed: '2024-01-14T14:20:00Z',
+            config: {
+              temperature: 0.3,
+              maxTokens: 4096,
+              ragEnabled: true,
+              srtEnabled: true,
+              rcpdEnabled: true,
+              provider: 'anthropic',
+              batchSize: 5,
+              semanticCache: true
+            }
+          }
+        ]
+      },
+      '/plugins': {
+        data: [
+          {
+            id: 'rag',
+            name: 'RAG Plugin',
+            description: 'Retrieval-Augmented Generation for enhanced responses',
+            version: '1.2.0',
+            status: 'active',
+            capabilities: ['retrieval', 'embedding', 'vector_search']
+          },
+          {
+            id: 'srt',
+            name: 'Self-Reflected Thinking',
+            description: 'Advanced reasoning with self-reflection capabilities',
+            version: '1.0.0',
+            status: 'active',
+            capabilities: ['reflection', 'reasoning', 'meta_cognition']
+          },
+          {
+            id: 'rcpd',
+            name: 'Rapid Catching Prompt Detection',
+            description: 'Fast prompt analysis and optimization',
+            version: '1.1.0',
+            status: 'active',
+            capabilities: ['prompt_analysis', 'optimization', 'detection']
           }
         ]
       },
@@ -149,8 +257,73 @@ class ApiService {
           totalRequests: 12540,
           activeAgents: 5,
           avgResponseTime: 145,
-          uptime: 99.9
+          uptime: 99.9,
+          requestsPerHour: 2100,
+          errorRate: 0.1
         }
+      },
+      '/api/agent/universal-prompt': {
+        data: {
+          response: "Universal agent orchestration response with advanced AI capabilities. This demonstrates RAG, SRT, and RCPD integration.",
+          context: { provider: 'openai', features: ['rag', 'srt', 'rcpd'], timestamp: new Date().toISOString() }
+        }
+      },
+      '/prompt': {
+        data: {
+          response: "Standard prompt orchestration response. This is a basic agent interaction.",
+          metadata: { processingTime: 150, model: 'gpt-4' }
+        }
+      },
+      '/rag-prompt': {
+        data: {
+          response: "RAG-enhanced response with retrieval-augmented generation. Knowledge retrieved from vector database.",
+          sources: [
+            { title: "AI Safety Guidelines", url: "https://example.com/ai-safety", relevance: 0.95 },
+            { title: "Best Practices", url: "https://example.com/practices", relevance: 0.87 }
+          ]
+        }
+      },
+      '/srt': {
+        data: {
+          response: "Self-Reflected Thinking response. I've analyzed my reasoning process and refined the answer.",
+          reflection: "Upon reflection, I considered multiple perspectives and validated my reasoning against known facts."
+        }
+      },
+      '/rcpd': {
+        data: {
+          response: "RCPD-optimized response. Rapid Catching Prompt Detection enhanced this interaction.",
+          detection: { promptType: 'analytical', optimizations: ['clarity', 'specificity'], confidence: 0.92 }
+        }
+      },
+      '/orchestrate': {
+        data: {
+          results: [
+            { agentId: 'agent-1', response: 'Research completed successfully', status: 'completed' },
+            { agentId: 'agent-2', response: 'Analysis finished with insights', status: 'completed' }
+          ]
+        }
+      },
+      '/batch-run': {
+        data: {
+          batchId: 'batch-' + Date.now(),
+          results: [
+            { id: 1, response: 'Task 1 completed', status: 'success' },
+            { id: 2, response: 'Task 2 completed', status: 'success' },
+            { id: 3, response: 'Task 3 completed', status: 'success' }
+          ]
+        }
+      },
+      '/run': {
+        data: {
+          response: "Agent execution completed successfully with provided input.",
+          metadata: { executionTime: 200, status: 'success' }
+        }
+      },
+      '/users': {
+        data: [
+          { id: '1', email: 'admin@orchesity.dev', name: 'Admin User', role: 'admin', createdAt: '2024-01-01T00:00:00Z' },
+          { id: '2', email: 'user@orchesity.dev', name: 'John Doe', role: 'user', createdAt: '2024-01-01T00:00:00Z' }
+        ]
       },
       '/logs': {
         data: [
@@ -161,16 +334,55 @@ class ApiService {
     };
 
     // Handle dynamic endpoints
-    if (endpoint.startsWith('/agents/') && endpoint.includes('/chat')) {
+    if (endpoint.startsWith('/config/')) {
+      const agentId = endpoint.split('/')[2];
+      if (options.method === 'PUT') {
+        return {
+          data: JSON.parse(options.body as string)
+        } as ApiResponse<T>;
+      }
       return {
         data: {
-          response: "Hello! I'm a mock AI agent response. This would be the actual agent's reply in production.",
-          context: { agentId: endpoint.split('/')[2], timestamp: new Date().toISOString() }
+          temperature: 0.7,
+          maxTokens: 2048,
+          ragEnabled: true,
+          srtEnabled: false,
+          rcpdEnabled: true,
+          provider: 'openai',
+          batchSize: 10,
+          semanticCache: true
         }
       } as ApiResponse<T>;
     }
 
-    if (endpoint.startsWith('/agents/') && options.method === 'PUT') {
+    if (endpoint.startsWith('/logs/')) {
+      return {
+        data: [
+          { id: '1', timestamp: '2024-01-15T10:30:00Z', level: 'info', message: 'Agent executed successfully', agentId: endpoint.split('/')[2] },
+          { id: '2', timestamp: '2024-01-15T10:25:00Z', level: 'debug', message: 'Processing user request', agentId: endpoint.split('/')[2] }
+        ]
+      } as ApiResponse<T>;
+    }
+
+    if (endpoint.startsWith('/status/')) {
+      return {
+        data: {
+          status: 'healthy',
+          health: { cpu: 34, memory: 67, uptime: '99.9%', lastCheck: new Date().toISOString() }
+        }
+      } as ApiResponse<T>;
+    }
+
+    if (endpoint.startsWith('/history/')) {
+      return {
+        data: [
+          { id: '1', timestamp: '2024-01-15T10:30:00Z', input: 'User query', output: 'Agent response', duration: 150 },
+          { id: '2', timestamp: '2024-01-15T10:25:00Z', input: 'Another query', output: 'Another response', duration: 200 }
+        ]
+      } as ApiResponse<T>;
+    }
+
+    if (endpoint.startsWith('/update/') && options.method === 'PUT') {
       return {
         data: {
           id: endpoint.split('/')[2],
@@ -184,11 +396,23 @@ class ApiService {
       } as ApiResponse<T>;
     }
 
-    if (endpoint.startsWith('/agents/') && options.method === 'DELETE') {
+    if (endpoint.startsWith('/delete/') && options.method === 'DELETE') {
       return { data: null } as ApiResponse<T>;
     }
 
-    if (options.method === 'POST' && endpoint === '/agents') {
+    if (endpoint.startsWith('/plugin/') && endpoint.includes('/activate')) {
+      return { data: { success: true } } as ApiResponse<T>;
+    }
+
+    if (endpoint.startsWith('/plugin/') && endpoint.includes('/deactivate')) {
+      return { data: { success: true } } as ApiResponse<T>;
+    }
+
+    if (endpoint.startsWith('/users/') && endpoint.includes('/role')) {
+      return { data: { success: true } } as ApiResponse<T>;
+    }
+
+    if (options.method === 'POST' && endpoint === '/create') {
       return {
         data: {
           id: 'new-agent-id',
@@ -197,6 +421,18 @@ class ApiService {
           status: 'active' as const,
           model: 'gpt-4',
           plugins: [],
+          createdAt: new Date().toISOString()
+        }
+      } as ApiResponse<T>;
+    }
+
+    if (options.method === 'POST' && endpoint === '/users/create') {
+      return {
+        data: {
+          id: 'new-user-id',
+          email: JSON.parse(options.body as string).email,
+          name: JSON.parse(options.body as string).name,
+          role: JSON.parse(options.body as string).role || 'user',
           createdAt: new Date().toISOString()
         }
       } as ApiResponse<T>;
@@ -256,42 +492,151 @@ class ApiService {
     return this.request('/stripe/subscription');
   }
 
-  // Agent endpoints
+  // Agent Orchestration endpoints
+  async universalPrompt(request: OrchestrationRequest): Promise<ApiResponse<{ response: string; context?: any }>> {
+    return this.request('/api/agent/universal-prompt', {
+      method: 'POST',
+      body: JSON.stringify(request),
+    });
+  }
+
+  async promptOrchestration(prompt: string, config?: any): Promise<ApiResponse<{ response: string }>> {
+    return this.request('/prompt', {
+      method: 'POST',
+      body: JSON.stringify({ prompt, config }),
+    });
+  }
+
+  async ragPrompt(prompt: string, agentId?: string): Promise<ApiResponse<{ response: string; sources?: any[] }>> {
+    return this.request('/rag-prompt', {
+      method: 'POST',
+      body: JSON.stringify({ prompt, agentId }),
+    });
+  }
+
+  async srtPrompt(prompt: string, agentId?: string): Promise<ApiResponse<{ response: string; reflection?: string }>> {
+    return this.request('/srt', {
+      method: 'POST',
+      body: JSON.stringify({ prompt, agentId }),
+    });
+  }
+
+  async rcpdPrompt(prompt: string, agentId?: string): Promise<ApiResponse<{ response: string; detection?: any }>> {
+    return this.request('/rcpd', {
+      method: 'POST',
+      body: JSON.stringify({ prompt, agentId }),
+    });
+  }
+
+  async orchestrateAgents(requests: OrchestrationRequest[]): Promise<ApiResponse<{ results: any[] }>> {
+    return this.request('/orchestrate', {
+      method: 'POST',
+      body: JSON.stringify({ requests }),
+    });
+  }
+
+  async batchRun(batchRequest: BatchRequest): Promise<ApiResponse<{ batchId: string; results?: any[] }>> {
+    return this.request('/batch-run', {
+      method: 'POST',
+      body: JSON.stringify(batchRequest),
+    });
+  }
+
+  // Agent CRUD endpoints
   async getAgents(): Promise<ApiResponse<Agent[]>> {
-    return this.request('/agents');
+    return this.request('/list');
   }
 
   async createAgent(agent: Omit<Agent, 'id' | 'createdAt'>): Promise<ApiResponse<Agent>> {
-    return this.request('/agents', {
+    return this.request('/create', {
       method: 'POST',
       body: JSON.stringify(agent),
     });
   }
 
   async updateAgent(id: string, agent: Partial<Agent>): Promise<ApiResponse<Agent>> {
-    return this.request(`/agents/${id}`, {
+    return this.request(`/update/${id}`, {
       method: 'PUT',
       body: JSON.stringify(agent),
     });
   }
 
   async deleteAgent(id: string): Promise<ApiResponse<null>> {
-    return this.request(`/agents/${id}`, { method: 'DELETE' });
+    return this.request(`/delete/${id}`, { method: 'DELETE' });
   }
 
-  async chatWithAgent(agentId: string, message: string): Promise<ApiResponse<{ response: string; context?: any }>> {
-    return this.request(`/agents/${agentId}/chat`, {
-      method: 'POST',
-      body: JSON.stringify({ message }),
+  async getAgentConfig(id: string): Promise<ApiResponse<AgentConfig>> {
+    return this.request(`/config/${id}`);
+  }
+
+  async updateAgentConfig(id: string, config: AgentConfig): Promise<ApiResponse<AgentConfig>> {
+    return this.request(`/config/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(config),
     });
   }
 
+  async getAgentLogs(id: string): Promise<ApiResponse<LogEntry[]>> {
+    return this.request(`/logs/${id}`);
+  }
+
+  async getAgentStatus(id: string): Promise<ApiResponse<{ status: string; health: any }>> {
+    return this.request(`/status/${id}`);
+  }
+
+  async getAgentHistory(id: string): Promise<ApiResponse<any[]>> {
+    return this.request(`/history/${id}`);
+  }
+
+  async runAgent(agentId: string, input: any): Promise<ApiResponse<{ response: string; metadata?: any }>> {
+    return this.request('/run', {
+      method: 'POST',
+      body: JSON.stringify({ agentId, input }),
+    });
+  }
+
+  // Plugin endpoints
+  async getPlugins(): Promise<ApiResponse<PluginInfo[]>> {
+    return this.request('/plugins');
+  }
+
+  async activatePlugin(pluginId: string): Promise<ApiResponse<{ success: boolean }>> {
+    return this.request(`/plugin/${pluginId}/activate`, {
+      method: 'POST',
+    });
+  }
+
+  async deactivatePlugin(pluginId: string): Promise<ApiResponse<{ success: boolean }>> {
+    return this.request(`/plugin/${pluginId}/deactivate`, {
+      method: 'POST',
+    });
+  }
+
+  // User Management endpoints
+  async createUser(userData: { email: string; password: string; name: string; role?: string }): Promise<ApiResponse<User>> {
+    return this.request('/users/create', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+    });
+  }
+
+  async updateUserRole(userId: string, role: string): Promise<ApiResponse<{ success: boolean }>> {
+    return this.request(`/users/${userId}/role`, {
+      method: 'PUT',
+      body: JSON.stringify({ role }),
+    });
+  }
+
+  async getUsers(): Promise<ApiResponse<User[]>> {
+    return this.request('/users');
+  }
+
   // Metrics and logs
-  async getMetrics(): Promise<ApiResponse<any>> {
+  async getMetrics(): Promise<ApiResponse<Metrics>> {
     return this.request('/metrics');
   }
 
-  async getLogs(agentId?: string): Promise<ApiResponse<any[]>> {
+  async getLogs(agentId?: string): Promise<ApiResponse<LogEntry[]>> {
     const endpoint = agentId ? `/logs?agent_id=${agentId}` : '/logs';
     return this.request(endpoint);
   }

@@ -9,6 +9,9 @@ import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import Agents from "./pages/Agents";
+import Orchestration from "./pages/Orchestration";
+import Plugins from "./pages/Plugins";
+import Metrics from "./pages/Metrics";
 import Settings from "./pages/Settings";
 import Auth from "./pages/Auth";
 import Subscription from "./pages/Subscription";
@@ -75,6 +78,21 @@ const AppRoutes = () => (
     <Route path="/agents" element={
       <ProtectedRoute>
         <Agents />
+      </ProtectedRoute>
+    } />
+    <Route path="/orchestration" element={
+      <ProtectedRoute>
+        <Orchestration />
+      </ProtectedRoute>
+    } />
+    <Route path="/plugins" element={
+      <ProtectedRoute>
+        <Plugins />
+      </ProtectedRoute>
+    } />
+    <Route path="/metrics" element={
+      <ProtectedRoute>
+        <Metrics />
       </ProtectedRoute>
     } />
     <Route path="/settings" element={

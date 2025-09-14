@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User } from "lucide-react";
+import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,9 @@ const Navigation = () => {
   const navItems = [
     { label: "Dashboard", href: "/dashboard", icon: BarChart3 },
     { label: "Agents", href: "/agents", icon: Bot },
+    { label: "Orchestration", href: "/orchestration", icon: Cpu },
+    { label: "Plugins", href: "/plugins", icon: Puzzle },
+    { label: "Metrics", href: "/metrics", icon: Activity },
     { label: "Documentation", href: "/docs", icon: BookOpen },
     { label: "Settings", href: "/settings", icon: Settings },
   ];
