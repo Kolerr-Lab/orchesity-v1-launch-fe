@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import { GoBackButton } from "@/components/ui/go-back-button";
 import { Settings as SettingsIcon, User, Key, Bell, Shield, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +14,9 @@ const Settings = () => {
       
       <main className="pt-24 pb-12">
         <div className="container mx-auto px-4 max-w-4xl">
+          <div className="mb-6">
+            <GoBackButton />
+          </div>
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">

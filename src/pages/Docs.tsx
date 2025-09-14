@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
+import { GoBackButton } from '@/components/ui/go-back-button';
 import { ApiPlayground } from '@/components/docs/ApiPlayground';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -230,6 +231,9 @@ curl -X POST "https://api.orchesity.com/api/agents/AGENT_ID/chat" \\
       
       <main className="pt-24 pb-12">
         <div className="container mx-auto px-4">
+          <div className="mb-6">
+            <GoBackButton />
+          </div>
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">

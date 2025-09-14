@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
+import { GoBackButton } from "@/components/ui/go-back-button";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 
 const Contact = () => {
@@ -45,6 +46,9 @@ const Contact = () => {
       
       <main className="pt-24 pb-12">
         <div className="container mx-auto px-4">
+          <div className="mb-6">
+            <GoBackButton />
+          </div>
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-foreground mb-4">Contact Us</h1>
