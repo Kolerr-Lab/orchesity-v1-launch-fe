@@ -43,7 +43,7 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
+          <h1 className="font-inter text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
             Universal{" "}
             <span className="gradient-text-primary font-black">Cloud AI</span>
             <br />
