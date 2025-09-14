@@ -114,11 +114,7 @@ const AppRoutes = () => (
         <Settings />
       </ProtectedRoute>
     } />
-    <Route path="/subscription" element={
-      <ProtectedRoute>
-        <Subscription />
-      </ProtectedRoute>
-    } />
+    <Route path="/subscription" element={<Subscription />} />
     <Route path="/docs" element={<Docs />} />
     <Route path="/cost-calculator" element={<CostCalculator />} />
     <Route path="/support" element={<Support />} />
