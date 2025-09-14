@@ -43,15 +43,15 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
             Universal{" "}
-            <span className="gradient-text-primary">Cloud AI</span>
+            <span className="gradient-text-primary font-black">Cloud AI</span>
             <br />
-            Backend for Every App
+            <span className="font-black">Backend for Every App</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-inter text-xl md:text-2xl font-medium text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
             The only AI backend you'll ever need. Plug into any app, any language, any use case. 
             Save up to 70% on LLM costs with smart orchestration, caching, and provider optimization.
           </p>
@@ -61,7 +61,7 @@ const Hero = () => {
             <Button asChild
               variant="hero" 
               size="lg" 
-              className="text-lg px-8 py-6 glow-primary pulse-glow group"
+              className="font-inter text-lg font-bold px-8 py-6 glow-primary pulse-glow group"
             >
               <Link to="/auth">
                 Start Building Agents
@@ -71,7 +71,7 @@ const Hero = () => {
             <Button asChild
               variant="outline" 
               size="lg" 
-              className="text-lg px-8 py-6 glass hover:glow-accent"
+              className="font-inter text-lg font-semibold px-8 py-6 glass hover:glow-accent"
             >
               <Link to="/docs">
                 View Documentation
