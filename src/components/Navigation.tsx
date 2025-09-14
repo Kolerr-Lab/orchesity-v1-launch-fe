@@ -24,69 +24,14 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative flex items-center justify-center">
-              {/* Geometric Logo Design */}
-              <div className="relative">
-                {/* Main hexagon shape */}
-                <div className="w-10 h-10 relative">
-                  <svg 
-                    viewBox="0 0 40 40" 
-                    className="w-full h-full transform group-hover:rotate-12 transition-transform duration-500"
-                    fill="none"
-                  >
-                    {/* Outer hexagon */}
-                    <path 
-                      d="M20 2 L35 11 L35 29 L20 38 L5 29 L5 11 Z" 
-                      stroke="url(#gradient1)" 
-                      strokeWidth="2"
-                      fill="url(#gradient2)"
-                      className="drop-shadow-lg"
-                    />
-                    {/* Inner geometric pattern */}
-                    <path 
-                      d="M20 8 L28 13 L28 27 L20 32 L12 27 L12 13 Z" 
-                      stroke="hsl(var(--accent))"
-                      strokeWidth="1.5"
-                      fill="none"
-                      className="opacity-80"
-                    />
-                    {/* Central dot */}
-                    <circle 
-                      cx="20" 
-                      cy="20" 
-                      r="3" 
-                      fill="hsl(var(--primary))"
-                      className="group-hover:animate-pulse"
-                    />
-                    
-                    <defs>
-                      <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="hsl(var(--primary))" />
-                        <stop offset="100%" stopColor="hsl(var(--accent))" />
-                      </linearGradient>
-                      <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="hsl(var(--primary) / 0.1)" />
-                        <stop offset="100%" stopColor="hsl(var(--accent) / 0.05)" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-                
-                {/* Hover glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-all duration-500 -z-10" />
-              </div>
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="relative">
+              <Zap className="h-8 w-8 text-primary group-hover:text-primary-glow transition-colors" />
+              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
-            
-            {/* Brand text */}
-            <div className="flex flex-col">
-              <span className="text-xl font-bold gradient-text-primary tracking-tight leading-none">
-                Orchesity
-              </span>
-              <span className="text-xs text-muted-foreground font-medium tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                OSS AGENT
-              </span>
-            </div>
+            <span className="text-xl font-bold gradient-text-primary">
+              Orchesity
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
