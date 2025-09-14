@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity } from "lucide-react";
+import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
@@ -52,13 +52,22 @@ const Navigation = () => {
                 </Link>
               ))
             ) : (
-              <Link
-                to="/docs"
-                className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-              >
-                <BookOpen className="h-4 w-4" />
-                <span>Documentation</span>
-              </Link>
+              <>
+                <Link
+                  to="/docs"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                >
+                  <BookOpen className="h-4 w-4" />
+                  <span>Documentation</span>
+                </Link>
+                <Link
+                  to="/cost-calculator"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                >
+                  <Calculator className="h-4 w-4" />
+                  <span>Cost Calculator</span>
+                </Link>
+              </>
             )}
           </div>
 
@@ -153,6 +162,14 @@ const Navigation = () => {
                 >
                   <BookOpen className="h-4 w-4" />
                   <span>Documentation</span>
+                </Link>
+                <Link
+                  to="/cost-calculator"
+                  className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Calculator className="h-4 w-4" />
+                  <span>Cost Calculator</span>
                 </Link>
                 <div className="pt-4 space-y-2">
                   <Link to="/auth" onClick={() => setIsOpen(false)}>

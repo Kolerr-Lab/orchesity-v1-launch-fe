@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles, Cpu, Network } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -54,20 +55,24 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button 
+            <Button asChild
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-6 glow-primary pulse-glow group"
             >
-              Start Building Agents
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Link to="/auth">
+                Start Building Agents
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
-            <Button 
+            <Button asChild
               variant="outline" 
               size="lg" 
               className="text-lg px-8 py-6 glass hover:glow-accent"
             >
-              View Documentation
+              <Link to="/docs">
+                View Documentation
+              </Link>
             </Button>
           </div>
 

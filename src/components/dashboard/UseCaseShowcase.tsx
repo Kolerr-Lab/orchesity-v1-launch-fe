@@ -1,4 +1,5 @@
 import { Code, Smartphone, Building, Globe, MessageSquare, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -105,8 +106,8 @@ export const UseCaseShowcase = () => {
                 </div>
               </div>
 
-              <Button variant="ghost" size="sm" className="w-full mt-4 group-hover:bg-primary/10">
-                View Integration Guide
+              <Button asChild variant="ghost" size="sm" className="w-full mt-4 group-hover:bg-primary/10">
+                <Link to="/docs">View Integration Guide</Link>
               </Button>
             </CardContent>
           </Card>
@@ -120,11 +121,11 @@ export const UseCaseShowcase = () => {
             Orchesity is designed to work with any application, in any language, for any use case.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="hero">
-              Contact Sales
+            <Button asChild variant="hero">
+              <Link to="/auth">Contact Sales</Link>
             </Button>
-            <Button variant="outline">
-              View Documentation
+            <Button asChild variant="outline">
+              <Link to="/docs">View Documentation</Link>
             </Button>
           </div>
         </Card>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Calculator, TrendingDown, Zap, DollarSign } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -176,8 +177,8 @@ const CostCalculator = () => {
                       <span className="text-sm">With Orchesity:</span>
                       <span className="font-semibold text-green-400">${results.orchesityCost.toFixed(0)}/month</span>
                     </div>
-                    <Button className="w-full" variant="hero">
-                      Start Saving Today
+                    <Button asChild className="w-full" variant="hero">
+                      <Link to="/auth">Start Saving Today</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -219,11 +220,11 @@ const CostCalculator = () => {
                 Join thousands of developers already reducing their AI costs with Orchesity
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="lg">
-                  Start Free Trial
+                <Button asChild variant="hero" size="lg">
+                  <Link to="/auth">Start Free Trial</Link>
                 </Button>
-                <Button variant="outline" size="lg">
-                  Schedule Demo
+                <Button asChild variant="outline" size="lg">
+                  <Link to="/auth">Schedule Demo</Link>
                 </Button>
               </div>
             </Card>

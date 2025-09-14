@@ -1,5 +1,7 @@
 import { Bot, Brain, Gauge, Shield, Zap, Database } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Features = () => {
   const features = [
@@ -110,12 +112,12 @@ const Features = () => {
               Join 50,000+ apps already using Orchesity to reduce AI costs and accelerate development
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-gradient-to-r from-primary to-accent rounded-lg font-medium hover:scale-105 transition-transform">
-                Start Free Trial
-              </button>
-              <button className="px-6 py-3 glass border border-border/20 rounded-lg font-medium hover:bg-secondary/50 transition-colors">
-                View Pricing
-              </button>
+              <Button asChild variant="hero" className="px-6 py-3 hover:scale-105 transition-transform">
+                <Link to="/auth">Start Free Trial</Link>
+              </Button>
+              <Button asChild variant="outline" className="px-6 py-3 glass border border-border/20 hover:bg-secondary/50 transition-colors">
+                <Link to="/subscription">View Pricing</Link>
+              </Button>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { HelpCircle, Book, MessageCircle, Video, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -141,11 +142,11 @@ export const HelpCenter = () => {
           Our support team is here to help you succeed with Orchesity
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button variant="hero">
-            Contact Support
+          <Button asChild variant="hero">
+            <Link to="/auth">Contact Support</Link>
           </Button>
-          <Button variant="outline">
-            Schedule a Demo
+          <Button asChild variant="outline">
+            <Link to="/auth">Schedule a Demo</Link>
           </Button>
         </div>
       </Card>

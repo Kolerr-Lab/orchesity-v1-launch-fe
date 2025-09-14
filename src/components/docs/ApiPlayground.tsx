@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -166,7 +167,7 @@ export const ApiPlayground = () => {
               className="font-mono"
             />
             <p className="text-xs text-muted-foreground">
-              Get your API key from the <a href="/dashboard" className="text-primary hover:underline">dashboard</a>
+              Get your API key from the <Link to="/dashboard" className="text-primary hover:underline">dashboard</Link>
             </p>
           </div>
 

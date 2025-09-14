@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { User, api } from '@/lib/api';
 import { useToast } from '@/hooks/use-toast';
 
@@ -26,6 +27,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const initAuth = async () => {
@@ -101,6 +103,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         title: "Logged out",
         description: "You've been successfully logged out.",
       });
+      // Redirect to home page after logout
+      navigate('/');
     }
   };
 

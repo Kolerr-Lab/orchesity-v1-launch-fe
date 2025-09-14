@@ -1,4 +1,5 @@
 import { BarChart3, Bot, Cpu, Zap, Users, Activity, DollarSign, TrendingDown, Building } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -187,8 +188,8 @@ const Dashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground mb-4">{integration.integrations}</p>
-                      <Button variant="outline" size="sm" className="w-full">
-                        {integration.docs}
+                      <Button asChild variant="outline" size="sm" className="w-full">
+                        <Link to="/docs">{integration.docs}</Link>
                       </Button>
                     </CardContent>
                   </Card>
@@ -212,17 +213,23 @@ const Dashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <Button variant="hero" className="h-20 flex-col gap-2">
-                    <Bot className="h-6 w-6" />
-                    Deploy New Agent
+                  <Button asChild variant="hero" className="h-20 flex-col gap-2">
+                    <Link to="/agents">
+                      <Bot className="h-6 w-6" />
+                      Deploy New Agent
+                    </Link>
                   </Button>
-                  <Button variant="outline" className="h-20 flex-col gap-2 glass">
-                    <Cpu className="h-6 w-6" />
-                    View Analytics
+                  <Button asChild variant="outline" className="h-20 flex-col gap-2 glass">
+                    <Link to="/metrics">
+                      <Cpu className="h-6 w-6" />
+                      View Analytics
+                    </Link>
                   </Button>
-                  <Button variant="outline" className="h-20 flex-col gap-2 glass">
-                    <BarChart3 className="h-6 w-6" />
-                    Generate Report
+                  <Button asChild variant="outline" className="h-20 flex-col gap-2 glass">
+                    <Link to="/metrics">
+                      <BarChart3 className="h-6 w-6" />
+                      Generate Report
+                    </Link>
                   </Button>
                 </div>
               </CardContent>
