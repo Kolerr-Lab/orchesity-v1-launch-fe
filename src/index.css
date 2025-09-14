@@ -206,6 +206,8 @@
   /* Pulse glow animation */
   .pulse-glow {
     animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+
 /* Performance optimizations */
 .will-change-auto {
   will-change: auto;
