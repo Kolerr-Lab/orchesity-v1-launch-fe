@@ -206,10 +206,33 @@
   /* Pulse glow animation */
   .pulse-glow {
     animation: pulseGlow 2s ease-in-out infinite alternate;
-  }
+/* Performance optimizations */
+.will-change-auto {
+  will-change: auto;
+}
 
-  @keyframes pulseGlow {
-    from { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
-    to { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+.transform-gpu {
+  transform: translateZ(0);
+}
+
+/* Dropdown optimizations */
+[data-radix-popper-content-wrapper] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
