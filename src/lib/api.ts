@@ -112,6 +112,34 @@ class ApiService {
     await new Promise(resolve => setTimeout(resolve, 300)); // Simulate network delay
     
     const mockResponses: Record<string, any> = {
+      '/health': {
+        data: {
+          status: 'healthy',
+          services: [
+            { name: 'API Gateway', status: 'healthy', responseTime: 45, uptime: 99.9 },
+            { name: 'Database', status: 'healthy', responseTime: 23, uptime: 99.8 },
+            { name: 'Cache', status: 'healthy', responseTime: 12, uptime: 99.9 },
+            { name: 'Auth Service', status: 'healthy', responseTime: 67, uptime: 99.7 },
+          ],
+          metrics: {
+            cpuUsage: 45,
+            memoryUsage: 67,
+            diskUsage: 23,
+            activeConnections: 234,
+            requestRate: 1450,
+            errorRate: 0.2,
+          },
+          lastChecked: new Date().toISOString(),
+        }
+      },
+      '/quota/status': {
+        data: {
+          requests: { current: 8500, limit: 10000, resetDate: '2024-02-01' },
+          tokens: { current: 450000, limit: 500000, resetDate: '2024-02-01' },
+          cost: { current: 847.50, limit: 1000, resetDate: '2024-02-01' },
+          rateLimit: { requestsPerMinute: 100, currentUsage: 23 },
+        }
+      },
       '/auth/login': {
         data: {
           token: 'mock-jwt-token-12345',
@@ -251,6 +279,9 @@ class ApiService {
       },
       '/stripe/portal': {
         data: { url: 'https://billing.stripe.com/mock-portal' }
+      },
+      '/quota/limits': {
+        data: { success: true }
       },
       '/metrics': {
         data: {
@@ -639,6 +670,23 @@ class ApiService {
   async getLogs(agentId?: string): Promise<ApiResponse<LogEntry[]>> {
     const endpoint = agentId ? `/logs?agent_id=${agentId}` : '/logs';
     return this.request(endpoint);
+  }
+
+  // Quota Management
+  async getQuotaStatus(): Promise<ApiResponse<any>> {
+    return this.request('/quota/status');
+  }
+
+  async updateQuotaLimits(limits: any): Promise<ApiResponse<any>> {
+    return this.request('/quota/limits', {
+      method: 'PUT',
+      body: JSON.stringify(limits),
+    });
+  }
+
+  // System Health
+  async getSystemHealth(): Promise<ApiResponse<any>> {
+    return this.request('/health');
   }
 }
 
