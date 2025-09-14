@@ -19,6 +19,12 @@ const Navigation = () => {
     { label: "Settings", href: "/settings", icon: Settings },
   ];
 
+  const publicNavItems = [
+    { label: "Documentation", href: "/docs", icon: BookOpen },
+    { label: "Cost Calculator", href: "/cost-calculator", icon: Calculator },
+    { label: "Pricing", href: "/subscription", icon: Zap },
+  ];
+
   return (
     <nav className="fixed top-0 w-full z-50 glass border-b border-border/20">
       <div className="container mx-auto px-4">
@@ -52,22 +58,16 @@ const Navigation = () => {
                 </Link>
               ))
             ) : (
-              <>
+              publicNavItems.map((item) => (
                 <Link
-                  to="/docs"
+                  key={item.href}
+                  to={item.href}
                   className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
                 >
-                  <BookOpen className="h-4 w-4" />
-                  <span>Documentation</span>
+                  <item.icon className="h-4 w-4" />
+                  <span>{item.label}</span>
                 </Link>
-                <Link
-                  to="/cost-calculator"
-                  className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  <Calculator className="h-4 w-4" />
-                  <span>Cost Calculator</span>
-                </Link>
-              </>
+              ))
             )}
           </div>
 
@@ -155,22 +155,17 @@ const Navigation = () => {
               </>
             ) : (
               <>
-                <Link
-                  to="/docs"
-                  className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <BookOpen className="h-4 w-4" />
-                  <span>Documentation</span>
-                </Link>
-                <Link
-                  to="/cost-calculator"
-                  className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Calculator className="h-4 w-4" />
-                  <span>Cost Calculator</span>
-                </Link>
+                {publicNavItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                ))}
                 <div className="pt-4 space-y-2">
                   <Link to="/auth" onClick={() => setIsOpen(false)}>
                     <Button variant="ghost" size="sm" className="w-full justify-start">

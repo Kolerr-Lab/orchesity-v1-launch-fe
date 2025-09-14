@@ -109,14 +109,14 @@ const Features = () => {
           <div className="glass rounded-2xl p-8 max-w-2xl mx-auto hover:glow-primary transition-all">
             <h3 className="text-2xl font-bold mb-4">Start Saving on AI Costs Today</h3>
             <p className="text-muted-foreground mb-6">
-              Join 50,000+ apps already using Orchesity to reduce AI costs and accelerate development
+              The universal cloud AI backend trusted by developers building the next generation of applications
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" className="px-6 py-3 hover:scale-105 transition-transform">
-                <Link to="/auth">Start Free Trial</Link>
+                <Link to="/auth">Start Building Free</Link>
               </Button>
               <Button asChild variant="outline" className="px-6 py-3 glass border border-border/20 hover:bg-secondary/50 transition-colors">
-                <Link to="/subscription">View Pricing</Link>
+                <Link to="/cost-calculator">Calculate Savings</Link>
               </Button>
             </div>
           </div>

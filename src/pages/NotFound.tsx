@@ -23,7 +23,7 @@ const NotFound = () => {
             <h1 className="text-6xl font-bold gradient-text-primary mb-4">404</h1>
             <h2 className="text-2xl font-semibold mb-2">Page Not Found</h2>
             <p className="text-muted-foreground">
-              The page you're looking for doesn't exist or has been moved.
+              This page doesn't exist. Let's get you back to building AI applications.
             </p>
           </div>
           

@@ -1,5 +1,5 @@
 import Navigation from '@/components/Navigation';
-import { PricingPlans } from '@/components/payments/PricingPlans';
+import { PricingFunnel } from '@/components/pricing/PricingFunnel';
 import { SubscriptionStatus } from '@/components/payments/SubscriptionStatus';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -24,13 +24,15 @@ export default function Subscription() {
           {/* Current Subscription */}
           <SubscriptionStatus />
 
-          {/* Available Plans */}
+          {/* Pricing Funnel */}
           <div className="space-y-6">
             <div className="text-center">
-              <h2 className="text-3xl font-bold gradient-text-primary">Available Plans</h2>
-              <p className="text-muted-foreground mt-2">Choose the perfect plan for your needs</p>
+              <h2 className="text-3xl font-bold gradient-text-primary">Choose Your Plan</h2>
+              <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
+                Scale your AI operations with our universal cloud backend. Start free, upgrade as you grow.
+              </p>
             </div>
-            <PricingPlans />
+            <PricingFunnel />
           </div>
 
           {/* FAQ Section */}

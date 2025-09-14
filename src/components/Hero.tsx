@@ -76,22 +76,35 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+          {/* Key Benefits */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
-              { label: "Cost Savings", value: "70%" },
-              { label: "Apps Connected", value: "50K+" },
-              { label: "Enterprise SLA", value: "99.99%" },
-            ].map((stat, index) => (
+              { 
+                label: "Cost Reduction", 
+                value: "Up to 70%", 
+                description: "Smart caching & optimization"
+              },
+              { 
+                label: "Universal Backend", 
+                value: "Any Stack", 
+                description: "React, Vue, Mobile, APIs"
+              },
+              { 
+                label: "Enterprise Ready", 
+                value: "99.99%", 
+                description: "SLA uptime guarantee"
+              },
+            ].map((benefit, index) => (
               <div 
-                key={stat.label} 
+                key={benefit.label} 
                 className="glass rounded-lg p-6 group hover:glow-accent transition-all"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="text-2xl md:text-3xl font-bold gradient-text-primary mb-2">
-                  {stat.value}
+                  {benefit.value}
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-sm font-medium mb-1">{benefit.label}</div>
+                <div className="text-xs text-muted-foreground">{benefit.description}</div>
               </div>
             ))}
           </div>

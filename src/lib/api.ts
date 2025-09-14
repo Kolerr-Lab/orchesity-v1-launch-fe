@@ -278,8 +278,8 @@ class ApiService {
         data: {
           response: "RAG-enhanced response with retrieval-augmented generation. Knowledge retrieved from vector database.",
           sources: [
-            { title: "AI Safety Guidelines", url: "https://example.com/ai-safety", relevance: 0.95 },
-            { title: "Best Practices", url: "https://example.com/practices", relevance: 0.87 }
+            { title: "AI Safety Guidelines", url: "/docs/safety", relevance: 0.95 },
+            { title: "Best Practices", url: "/docs/best-practices", relevance: 0.87 }
           ]
         }
       },
