@@ -69,13 +69,21 @@ const Contact = () => {
                   <CardDescription>Call us for immediate assistance</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <a 
-                    href="tel:+1-555-123-4567" 
-                    className="text-2xl font-semibold text-primary hover:text-primary/80 transition-colors"
-                  >
-                    +1 (555) 123-4567
-                  </a>
-                  <div className="flex items-center gap-2 mt-2 text-muted-foreground">
+                  <div className="space-y-2">
+                    <a 
+                      href="tel:+18103517299" 
+                      className="text-xl font-semibold text-primary hover:text-primary/80 transition-colors block"
+                    >
+                      +1 (810) 351-7299 (USA)
+                    </a>
+                    <a 
+                      href="tel:+84938737714" 
+                      className="text-xl font-semibold text-primary hover:text-primary/80 transition-colors block"
+                    >
+                      +84 938-737-714 (Vietnam)
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2 mt-3 text-muted-foreground">
                     <Clock className="h-4 w-4" />
                     <span>Mon-Fri: 9AM-6PM EST</span>
                   </div>
@@ -114,9 +122,8 @@ const Contact = () => {
                 <CardContent>
                   <address className="not-italic text-foreground">
                     <div className="font-semibold">Orchesity Technologies</div>
-                    <div>123 Innovation Drive</div>
-                    <div>Suite 500</div>
-                    <div>San Francisco, CA 94105</div>
+                    <div>1349 Sea Grove Ct.</div>
+                    <div>Gulf Breeze, FL 32563</div>
                     <div>United States</div>
                   </address>
                 </CardContent>
@@ -129,13 +136,23 @@ const Contact = () => {
                   <CardDescription>For critical system issues requiring immediate attention</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <a 
-                    href="tel:+1-555-EMERGENCY" 
-                    className="text-lg font-semibold text-destructive hover:text-destructive/80 transition-colors"
-                  >
-                    +1 (555) 363-7436
-                  </a>
-                  <p className="text-sm text-muted-foreground mt-1">
+                  <div className="space-y-2">
+                    <a 
+                      href="tel:+18103517299" 
+                      className="text-lg font-semibold text-destructive hover:text-destructive/80 transition-colors block"
+                    >
+                      +1 (810) 351-7299
+                    </a>
+                    <div className="text-sm text-muted-foreground">
+                      Email: <a 
+                        href="mailto:ricky@orchesity.com" 
+                        className="text-destructive hover:text-destructive/80 transition-colors"
+                      >
+                        ricky@orchesity.com
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-3">
                     Available 24/7 for critical issues
                   </p>
                 </CardContent>
@@ -238,7 +255,7 @@ const Contact = () => {
                   <a href="/subscription" className="block text-primary hover:text-primary/80 transition-colors">
                     → Pricing & Plans
                   </a>
-                  <a href="mailto:sales@orchesity.com" className="block text-primary hover:text-primary/80 transition-colors">
+                  <a href="mailto:ricky@orchesity.com" className="block text-primary hover:text-primary/80 transition-colors">
                     → Sales Inquiries
                   </a>
                 </CardContent>
