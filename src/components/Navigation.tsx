@@ -115,43 +115,45 @@ const Navigation = () => {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "md:hidden border-t border-border/20 transition-all duration-300 ease-in-out",
+            "md:hidden border-t border-border/20 transition-all duration-300 ease-in-out backdrop-blur-md bg-background/95",
             isOpen
-              ? "max-h-96 opacity-100 pb-4"
+              ? "max-h-96 opacity-100 pb-4 shadow-lg"
               : "max-h-0 opacity-0 overflow-hidden"
           )}
         >
-          <div className="pt-4 space-y-2">
+          <div className="pt-4 space-y-1 bg-background/50 backdrop-blur-sm rounded-lg mx-2 mt-2 border border-border/10">
             {isAuthenticated ? (
               <>
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                    className="flex items-center space-x-3 px-6 py-4 rounded-lg text-base font-bold text-foreground/90 hover:text-foreground hover:bg-primary/10 transition-all border-b border-border/5 last:border-b-0 backdrop-blur-sm bg-background/60"
                     onClick={() => setIsOpen(false)}
                   >
-                    <item.icon className="h-4 w-4" />
-                    <span>{item.label}</span>
+                    <item.icon className="h-5 w-5 text-primary/80" />
+                    <span className="tracking-wide">{item.label}</span>
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-border/20">
-                  <div className="flex items-center space-x-2 px-4 py-2 text-sm text-muted-foreground">
-                    <User className="h-4 w-4" />
-                    <span>{user?.name}</span>
+                <div className="pt-4 mt-4 border-t border-border/30 bg-background/40 rounded-b-lg">
+                  <div className="flex items-center space-x-3 px-6 py-3 text-base font-semibold text-foreground/80 bg-background/60 rounded-lg mx-2 mb-2">
+                    <User className="h-5 w-5 text-primary/70" />
+                    <span className="tracking-wide">{user?.name}</span>
                   </div>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="w-full justify-start gap-2 mt-2" 
-                    onClick={() => {
-                      logout();
-                      setIsOpen(false);
-                    }}
-                  >
-                    <LogOut className="h-4 w-4" />
-                    Logout
-                  </Button>
+                  <div className="px-2">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="w-full justify-start gap-3 font-bold text-base py-4 hover:bg-destructive/10 hover:text-destructive transition-all bg-background/60 border border-border/10" 
+                      onClick={() => {
+                        logout();
+                        setIsOpen(false);
+                      }}
+                    >
+                      <LogOut className="h-5 w-5" />
+                      Logout
+                    </Button>
+                  </div>
                 </div>
               </>
             ) : (
@@ -160,21 +162,21 @@ const Navigation = () => {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="flex items-center space-x-2 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                    className="flex items-center space-x-3 px-6 py-4 rounded-lg text-base font-bold text-foreground/90 hover:text-foreground hover:bg-primary/10 transition-all border-b border-border/5 last:border-b-0 backdrop-blur-sm bg-background/60"
                     onClick={() => setIsOpen(false)}
                   >
-                    <item.icon className="h-4 w-4" />
-                    <span>{item.label}</span>
+                    <item.icon className="h-5 w-5 text-primary/80" />
+                    <span className="tracking-wide">{item.label}</span>
                   </Link>
                 ))}
-                <div className="pt-4 space-y-2">
+                <div className="pt-4 space-y-3 bg-background/40 rounded-b-lg p-4 mt-4 border-t border-border/30">
                   <Link to="/auth" onClick={() => setIsOpen(false)}>
-                    <Button variant="ghost" size="sm" className="w-full justify-start">
+                    <Button variant="ghost" size="sm" className="w-full justify-start font-bold text-base py-4 bg-background/60 border border-border/10 hover:bg-secondary/50">
                       Sign In
                     </Button>
                   </Link>
                   <Link to="/auth" onClick={() => setIsOpen(false)}>
-                    <Button variant="hero" size="sm" className="w-full">
+                    <Button variant="hero" size="sm" className="w-full font-bold text-base py-4 shadow-lg">
                       Get Started
                     </Button>
                   </Link>
