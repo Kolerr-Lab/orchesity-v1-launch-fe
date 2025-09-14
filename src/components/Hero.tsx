@@ -8,10 +8,13 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="absolute inset-0 animated-bg opacity-80" />
+      <div className="absolute inset-0 animated-bg opacity-40" />
+      
+      {/* Brighter background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/70" />
       
       {/* Glow Effects */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
