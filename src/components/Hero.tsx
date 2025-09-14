@@ -33,24 +33,23 @@ const Hero = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full glass border mb-8 group hover:glow-primary transition-all cursor-pointer">
             <Sparkles className="h-4 w-4 text-primary mr-2" />
             <span className="text-sm font-medium">
-              Introducing the Future of AI Agent Orchestration
+              Universal Cloud AI Backend • Plug & Play • Cost Optimized
             </span>
             <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Orchestrate{" "}
-            <span className="gradient-text-primary">Intelligent</span>
+            Universal{" "}
+            <span className="gradient-text-primary">Cloud AI</span>
             <br />
-            AI Agents at Scale
+            Backend for Every App
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Deploy, manage, and scale AI agents with RAG-enabled intelligence. 
-            From simple automation to complex multi-agent workflows, 
-            OrchesityAI makes AI orchestration effortless.
+            The only AI backend you'll ever need. Plug into any app, any language, any use case. 
+            Save up to 70% on LLM costs with smart orchestration, caching, and provider optimization.
           </p>
 
           {/* CTA Buttons */}
@@ -75,9 +74,9 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
             {[
-              { label: "Agents Deployed", value: "10K+" },
-              { label: "API Calls/Day", value: "50M+" },
-              { label: "Uptime", value: "99.9%" },
+              { label: "Cost Savings", value: "70%" },
+              { label: "Apps Connected", value: "50K+" },
+              { label: "Enterprise SLA", value: "99.99%" },
             ].map((stat, index) => (
               <div 
                 key={stat.label} 

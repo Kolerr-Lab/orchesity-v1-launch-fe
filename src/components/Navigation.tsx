@@ -10,12 +10,12 @@ const Navigation = () => {
   const { user, logout, isAuthenticated } = useAuth();
 
   const navItems = [
-    { label: "Dashboard", href: "/dashboard", icon: BarChart3 },
-    { label: "Agents", href: "/agents", icon: Bot },
-    { label: "Orchestration", href: "/orchestration", icon: Cpu },
-    { label: "Plugins", href: "/plugins", icon: Puzzle },
-    { label: "Metrics", href: "/metrics", icon: Activity },
-    { label: "Documentation", href: "/docs", icon: BookOpen },
+    { label: "Control Center", href: "/dashboard", icon: BarChart3 },
+    { label: "Connected Apps", href: "/agents", icon: Bot },
+    { label: "Cost Analytics", href: "/metrics", icon: Activity },
+    { label: "API Playground", href: "/orchestration", icon: Cpu },
+    { label: "Integrations", href: "/plugins", icon: Puzzle },
+    { label: "API Docs", href: "/docs", icon: BookOpen },
     { label: "Settings", href: "/settings", icon: Settings },
   ];
 

@@ -18,6 +18,7 @@ import AuthCallback from "./pages/AuthCallback";
 import ResetPassword from "./pages/ResetPassword";
 import Subscription from "./pages/Subscription";
 import Docs from "./pages/Docs";
+import CostCalculator from "./pages/CostCalculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -118,6 +119,7 @@ const AppRoutes = () => (
       </ProtectedRoute>
     } />
     <Route path="/docs" element={<Docs />} />
+    <Route path="/cost-calculator" element={<CostCalculator />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );
