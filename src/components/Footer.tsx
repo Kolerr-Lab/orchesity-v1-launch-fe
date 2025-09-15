@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-              <img src="/logo-symbol.png" alt="OrchesityAI" className="h-8 w-8" />
+              <img src="/logo-symbol.png" alt="OrchesityAI" className="h-8 w-8 dark:invert" />
               <span className="font-poppins font-bold text-xl">OrchesityAI</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
