@@ -529,19 +529,19 @@ client = OrchesityClient(api_key='your-api-key')`}
                       ))}
                     </div>
 
-                    <div className="mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20">
-                      <h4 className="font-semibold mb-2">Need More Help?</h4>
-                      <p className="text-muted-foreground mb-4">
+                    <div className="mt-8 p-4 sm:p-6 bg-primary/10 rounded-lg border border-primary/20">
+                      <h4 className="font-semibold mb-2 text-center sm:text-left">Need More Help?</h4>
+                      <p className="text-muted-foreground mb-4 text-sm sm:text-base text-center sm:text-left">
                         Can't find what you're looking for? Our support team is here to help.
                       </p>
-                      <div className="flex gap-3">
-                        <Button variant="outline" size="sm">
+                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                        <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs sm:text-sm">
                           Contact Support
                         </Button>
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs sm:text-sm">
                           Join Discord
                         </Button>
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" className="w-full sm:w-auto text-xs sm:text-sm">
                           GitHub Issues
                         </Button>
                       </div>
