@@ -10,56 +10,89 @@ const Blog = () => {
   const blogPosts = [
     {
       title: "Introducing OrchesityAI: The Universal Cloud AI Backend",
-      excerpt: "Today, we're excited to announce OrchesityAI, a revolutionary platform that makes AI accessible to every developer and business.",
-      author: "Sarah Chen",
+      excerpt: "Today, we're excited to announce OrchesityAI, a revolutionary platform that makes AI accessible to every developer and business. Learn about our vision, architecture, and the problems we're solving.",
+      author: "Ricky Anh Nguyen",
       date: "December 15, 2024",
       readTime: "5 min read",
       category: "Product",
-      featured: true
+      featured: true,
+      content: "Full article content about OrchesityAI introduction..."
     },
     {
-      title: "The Hidden Costs of AI Infrastructure",
-      excerpt: "Explore the often overlooked costs of running AI at scale and how to optimize your infrastructure spending.",
-      author: "Michael Rodriguez",
-      date: "December 10, 2024",
+      title: "The Hidden Costs of AI Infrastructure: A Deep Dive",
+      excerpt: "Explore the often overlooked costs of running AI at scale and how to optimize your infrastructure spending. From compute costs to data transfer fees, we break down everything you need to know.",
+      author: "Ricky Anh Nguyen",
+      date: "December 12, 2024",
       readTime: "8 min read",
-      category: "Engineering"
+      category: "Engineering",
+      content: "Detailed analysis of AI infrastructure costs and optimization strategies..."
     },
     {
-      title: "Building Reliable AI Agents: Best Practices",
-      excerpt: "Learn how to design and deploy AI agents that scale reliably in production environments.",
-      author: "Alex Kumar",
-      date: "December 5, 2024",
+      title: "Building Reliable AI Agents: Production Best Practices",
+      excerpt: "Learn how to design and deploy AI agents that scale reliably in production environments. From error handling to monitoring, we cover essential patterns for enterprise AI.",
+      author: "Ricky Anh Nguyen",
+      date: "December 10, 2024",
       readTime: "12 min read",
-      category: "Tutorial"
+      category: "Tutorial",
+      content: "Comprehensive guide to building production-ready AI agents..."
     },
     {
-      title: "The Future of AI Orchestration",
-      excerpt: "How AI orchestration is evolving and what it means for the future of intelligent applications.",
-      author: "Dr. Emily Watson",
-      date: "November 28, 2024",
+      title: "The Future of AI Orchestration: Beyond Simple Pipelines",
+      excerpt: "How AI orchestration is evolving beyond basic workflows to intelligent, adaptive systems that can self-optimize and handle complex multi-agent scenarios.",
+      author: "Ricky Anh Nguyen",
+      date: "December 8, 2024",
       readTime: "6 min read",
-      category: "Research"
+      category: "Research",
+      content: "Vision for the future of AI orchestration and intelligent systems..."
     },
     {
       title: "Security in AI: Protecting Your Models and Data",
-      excerpt: "Essential security practices for AI applications and how to protect your valuable AI assets.",
-      author: "David Park",
-      date: "November 20, 2024",
+      excerpt: "Essential security practices for AI applications and how to protect your valuable AI assets. From model theft to data poisoning, we cover the full threat landscape.",
+      author: "Ricky Anh Nguyen",
+      date: "December 5, 2024",
       readTime: "10 min read",
-      category: "Security"
+      category: "Security",
+      content: "Comprehensive security guide for AI applications..."
     },
     {
-      title: "Developer Experience: Making AI Simple",
-      excerpt: "Our philosophy on developer experience and how we're making AI development more accessible.",
-      author: "Sarah Chen",
-      date: "November 15, 2024",
+      title: "Developer Experience: Making AI Simple and Accessible",
+      excerpt: "Our philosophy on developer experience and how we're making AI development more accessible. Why simplicity matters and how we're achieving it at OrchesityAI.",
+      author: "Ricky Anh Nguyen",
+      date: "December 1, 2024",
       readTime: "7 min read",
-      category: "Product"
+      category: "Product",
+      content: "Deep dive into our DX philosophy and implementation..."
+    },
+    {
+      title: "From Solo Founder to AI Infrastructure: My Journey",
+      excerpt: "A personal story about building OrchesityAI from the ground up, the challenges faced, and lessons learned along the way as a solo founder in the AI space.",
+      author: "Ricky Anh Nguyen",
+      date: "November 28, 2024",
+      readTime: "9 min read",
+      category: "Founder Story",
+      content: "Personal journey and insights from building OrchesityAI..."
+    },
+    {
+      title: "Multi-Model AI: Orchestrating Different AI Providers",
+      excerpt: "How to effectively manage and orchestrate multiple AI models from different providers. Learn about cost optimization, failover strategies, and performance monitoring.",
+      author: "Ricky Anh Nguyen",
+      date: "November 25, 2024",
+      readTime: "11 min read",
+      category: "Engineering",
+      content: "Technical guide to multi-model AI orchestration..."
+    },
+    {
+      title: "The State of AI in 2024: What We've Learned",
+      excerpt: "Reflecting on the major developments in AI throughout 2024, from breakthrough models to infrastructure innovations, and what it means for developers.",
+      author: "Ricky Anh Nguyen",
+      date: "November 20, 2024",
+      readTime: "8 min read",
+      category: "Research",
+      content: "Year in review: AI developments and trends..."
     }
   ];
 
-  const categories = ["All", "Product", "Engineering", "Tutorial", "Research", "Security"];
+  const categories = ["All", "Product", "Engineering", "Tutorial", "Research", "Security", "Founder Story"];
 
   return (
     <div className="min-h-screen bg-background">

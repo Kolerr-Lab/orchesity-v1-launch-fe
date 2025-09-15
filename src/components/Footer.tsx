@@ -10,10 +10,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
               <img src="/logo-symbol.png" alt="OrchesityAI" className="h-8 w-8" />
               <span className="font-poppins font-bold text-xl">OrchesityAI</span>
-            </div>
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Universal Cloud AI Backend. Plug & Play. Cost Optimized. Scale your AI applications with confidence.
             </p>

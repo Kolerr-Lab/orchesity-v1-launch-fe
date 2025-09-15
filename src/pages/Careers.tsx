@@ -11,30 +11,44 @@ const Careers = () => {
     {
       title: "Senior AI Engineer",
       department: "Engineering",
-      location: "Remote",
+      location: "Florida / Ho Chi Minh City / Remote",
       type: "Full-time",
-      description: "Build and optimize AI models and infrastructure at scale."
+      description: "Build and optimize AI models and infrastructure at scale. Work with cutting-edge AI technologies and distributed systems."
     },
     {
       title: "DevOps Engineer",
       department: "Infrastructure",
-      location: "San Francisco, CA",
+      location: "Florida / Ho Chi Minh City / Remote",
       type: "Full-time", 
-      description: "Manage cloud infrastructure and deployment pipelines."
+      description: "Manage cloud infrastructure and deployment pipelines. Experience with Kubernetes, AWS, and CI/CD systems preferred."
     },
     {
       title: "Product Manager",
       department: "Product",
-      location: "Remote",
+      location: "Florida / Ho Chi Minh City / Remote",
       type: "Full-time",
-      description: "Drive product strategy and roadmap for AI platform features."
+      description: "Drive product strategy and roadmap for AI platform features. Define user experiences and work closely with engineering."
     },
     {
       title: "Technical Writer",
       department: "Documentation",
       location: "Remote",
       type: "Contract",
-      description: "Create comprehensive documentation and developer guides."
+      description: "Create comprehensive documentation and developer guides. Help make AI accessible through clear, actionable content."
+    },
+    {
+      title: "AI Research Engineer",
+      department: "Research",
+      location: "Florida / Ho Chi Minh City / Remote",
+      type: "Full-time",
+      description: "Research and implement next-generation AI orchestration techniques. PhD in AI/ML preferred."
+    },
+    {
+      title: "Frontend Engineer",
+      department: "Engineering",
+      location: "Remote",
+      type: "Full-time",
+      description: "Build beautiful, intuitive interfaces for AI tools. React, TypeScript, and design system experience required."
     }
   ];
 
@@ -136,8 +150,10 @@ const Careers = () => {
                       </div>
                       
                       <div className="mt-4 md:mt-0 md:ml-6">
-                        <Button className="w-full md:w-auto">
-                          Apply Now
+                        <Button className="w-full md:w-auto" asChild>
+                          <a href="mailto:ricky@orchesity.com?subject=Application for ${position.title}&body=Hi Ricky,%0A%0AI'm interested in applying for the ${position.title} position at OrchesityAI.%0A%0APlease find my resume attached.%0A%0AThank you for your consideration.">
+                            Apply Now
+                          </a>
                         </Button>
                       </div>
                     </div>
@@ -208,8 +224,10 @@ const Careers = () => {
               We're always looking for exceptional talent. If you're passionate about AI and building developer tools, 
               we'd love to hear from you even if we don't have an open position that matches your background.
             </p>
-            <Button size="lg">
-              Send Us Your Resume
+            <Button size="lg" asChild>
+              <a href="mailto:ricky@orchesity.com?subject=Open Application - OrchesityAI&body=Hi Ricky,%0A%0AI'm interested in joining OrchesityAI and would love to discuss potential opportunities.%0A%0APlease find my resume attached.%0A%0AThank you for your time.">
+                Send Us Your Resume
+              </a>
             </Button>
           </section>
         </div>

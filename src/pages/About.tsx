@@ -131,6 +131,48 @@ const About = () => {
             </Card>
           </section>
 
+          {/* Leadership */}
+          <section className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Leadership</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Meet the founder driving OrchesityAI's vision forward
+              </p>
+            </div>
+
+            <Card className="glass max-w-4xl mx-auto">
+              <CardContent className="p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full mx-auto md:mx-0 mb-6 flex items-center justify-center">
+                      <span className="text-4xl font-bold text-primary">RN</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">Ricky Anh Nguyen</h3>
+                    <p className="text-primary font-semibold mb-4">CEO & AI System Architect</p>
+                    <div className="prose prose-sm max-w-none text-muted-foreground">
+                      <p className="mb-4">
+                        Ricky is a solo founder and AI system architect with over a decade of experience in 
+                        distributed systems, machine learning, and developer infrastructure. His journey began 
+                        in traditional software engineering before transitioning into AI and cloud architecture.
+                      </p>
+                      <p className="mb-4">
+                        Having witnessed firsthand the complexity and cost barriers that prevent developers 
+                        from adopting AI, Ricky founded OrchesityAI with a mission to democratize AI infrastructure. 
+                        His vision is to create a universal backend that makes AI as accessible as connecting to a REST API.
+                      </p>
+                      <p>
+                        When not architecting AI systems, Ricky enjoys mentoring early-stage startups, 
+                        contributing to open source projects, and exploring the intersection of AI and developer experience.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
           {/* Team Section */}
           <section className="text-center">
             <h2 className="text-3xl font-bold mb-4">Join Our Mission</h2>
