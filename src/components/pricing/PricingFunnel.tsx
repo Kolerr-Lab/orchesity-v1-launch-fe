@@ -12,57 +12,54 @@ const plans = [
   {
     id: 'starter',
     name: 'Starter',
-    description: 'Perfect for developers exploring AI backend capabilities',
-    monthlyPrice: 0,
-    yearlyPrice: 0,
+    description: 'Perfect for developers exploring AI agent capabilities',
+    monthlyPrice: 9,
+    yearlyPrice: 7.20, // 20% discount
     icon: Zap,
     features: [
-      '3 AI Agents',
-      '1,000 API requests/month',
-      'Basic orchestration',
-      'Community support',
-      'Standard latency',
+      '1,000 API calls/month',
+      'Basic AI agent orchestration',
+      'Standard support',
+      'Community access',
+      'Basic analytics',
     ],
-    limitations: ['No RAG support', 'Basic caching only'],
-    cta: 'Start Free',
+    cta: 'Get Started',
     ctaVariant: 'outline' as const,
   },
   {
     id: 'pro',
     name: 'Pro',
-    description: 'Ideal for growing businesses with cost optimization needs',
-    monthlyPrice: 49,
-    yearlyPrice: 39,
+    description: 'Ideal for growing businesses with advanced AI needs',
+    monthlyPrice: 29,
+    yearlyPrice: 23.20, // 20% discount
     icon: Sparkles,
     popular: true,
     features: [
-      'Unlimited AI Agents',
-      '50,000 API requests/month',
+      '10,000 API calls/month',
       'Advanced orchestration with RAG',
       'Smart caching & batching',
-      '70% cost optimization',
       'Priority support',
-      'Sub-agent orchestration',
+      'Advanced analytics',
+      'Custom integrations',
     ],
-    cta: 'Start Pro Trial',
+    cta: 'Start Pro',
     ctaVariant: 'hero' as const,
   },
   {
     id: 'enterprise',
     name: 'Enterprise',
-    description: 'For organizations requiring enterprise-grade AI infrastructure',
-    monthlyPrice: 299,
-    yearlyPrice: 249,
+    description: 'For organizations requiring unlimited scale and support',
+    monthlyPrice: 99,
+    yearlyPrice: 79.20, // 20% discount
     icon: Crown,
     features: [
+      'Unlimited API calls',
       'Everything in Pro',
-      'Unlimited API requests',
-      'Custom model integrations',
       'Dedicated infrastructure',
       'SLA guarantees (99.99%)',
-      'Custom plugin development',
       'Dedicated support manager',
-      'CORS & webhook support',
+      'Custom development',
+      'Advanced security features',
     ],
     cta: 'Contact Sales',
     ctaVariant: 'outline' as const,
@@ -78,6 +75,7 @@ export const PricingFunnel = () => {
     setSelectedPlan(planId);
     
     if (planId === 'starter') {
+      // Redirect to auth for starter plan
       window.location.href = '/auth';
       return;
     }
@@ -169,12 +167,6 @@ export const PricingFunnel = () => {
                     <li key={index} className="flex items-start gap-3">
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                  {plan.limitations?.map((limitation, index) => (
-                    <li key={`limit-${index}`} className="flex items-start gap-3 opacity-60">
-                      <div className="h-4 w-4 mt-0.5 flex-shrink-0 text-muted-foreground">×</div>
-                      <span className="text-sm text-muted-foreground">{limitation}</span>
                     </li>
                   ))}
                 </ul>
