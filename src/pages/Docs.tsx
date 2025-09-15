@@ -51,7 +51,7 @@ export default function Docs() {
       title: "1. Sign Up & Get API Key",
       description: "Create your account and obtain your API credentials",
       code: `# Your API endpoint
-BASE_URL = "https://api.orchesity.com"
+BASE_URL = "https://api.orchesityai.com"
 
 # Get your API key from dashboard
 API_KEY = "orch_xxx..."`
@@ -67,7 +67,7 @@ npm install @orchesity/sdk
 
 # Direct HTTP (any language)
 curl -H "Authorization: Bearer YOUR_API_KEY" \\
-     https://api.orchesity.com/api/agents`
+     https://api.orchesityai.com/api/agents`
     },
     {
       title: "3. Create Your First Agent",
@@ -205,7 +205,7 @@ print(result)`
     {
       name: 'cURL',
       code: `# Create an agent
-curl -X POST "https://api.orchesity.com/api/agents" \\
+curl -X POST "https://api.orchesityai.com/api/agents" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -215,7 +215,7 @@ curl -X POST "https://api.orchesity.com/api/agents" \\
   }'
 
 # Chat with agent
-curl -X POST "https://api.orchesity.com/api/agents/AGENT_ID/chat" \\
+curl -X POST "https://api.orchesityai.com/api/agents/AGENT_ID/chat" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -335,7 +335,7 @@ curl -X POST "https://api.orchesity.com/api/agents/AGENT_ID/chat" \\
                     <div className="space-y-6">
                       <div className="p-4 bg-secondary/20 rounded-lg border border-border/10">
                         <h4 className="font-semibold mb-2">Base URL</h4>
-                        <code className="text-primary">https://api.orchesity.com</code>
+                        <code className="text-primary">https://api.orchesityai.com</code>
                       </div>
 
                       {apiEndpoints.map((endpoint, index) => (
@@ -413,7 +413,7 @@ curl -X POST "https://api.orchesity.com/api/agents/AGENT_ID/chat" \\
                         code={`# Include your API key in all requests
 curl -H "Authorization: Bearer YOUR_API_KEY" \\
      -H "Content-Type: application/json" \\
-     https://api.orchesity.com/api/agents
+     https://api.orchesityai.com/api/agents
 
 # JavaScript SDK
 const client = new OrchesityClient('your-api-key');

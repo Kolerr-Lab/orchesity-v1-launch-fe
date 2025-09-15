@@ -100,10 +100,10 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <a 
-                    href="mailto:support@orchesity.com" 
+                    href="mailto:support@orchesityai.com" 
                     className="text-xl font-semibold text-primary hover:text-primary/80 transition-colors"
                   >
-                    support@orchesity.com
+                    support@orchesityai.com
                   </a>
                   <p className="text-muted-foreground mt-2">
                     We typically respond within 2-4 hours
@@ -145,10 +145,10 @@ const Contact = () => {
                     </a>
                     <div className="text-sm text-muted-foreground">
                       Email: <a 
-                        href="mailto:ricky@orchesity.com" 
+                        href="mailto:emergency@orchesityai.com" 
                         className="text-destructive hover:text-destructive/80 transition-colors"
                       >
-                        ricky@orchesity.com
+                        emergency@orchesityai.com
                       </a>
                     </div>
                   </div>
@@ -255,7 +255,7 @@ const Contact = () => {
                   <a href="/subscription" className="block text-primary hover:text-primary/80 transition-colors">
                     → Pricing & Plans
                   </a>
-                  <a href="mailto:ricky@orchesity.com" className="block text-primary hover:text-primary/80 transition-colors">
+                  <a href="mailto:sales@orchesityai.com" className="block text-primary hover:text-primary/80 transition-colors">
                     → Sales Inquiries
                   </a>
                 </CardContent>

@@ -215,7 +215,7 @@ const Terms = () => {
               </CardHeader>
               <CardContent className="prose prose-gray max-w-none dark:prose-invert">
                 <p>
-                  These Terms are governed by the laws of [State/Country to be updated], without regard to conflict of law principles. Any disputes will be resolved in the courts of [Jurisdiction to be updated].
+                  These Terms are governed by the laws of the State of Florida, United States, without regard to conflict of law principles. Any disputes will be resolved in the courts of Escambia County, Florida.
                 </p>
               </CardContent>
             </Card>
@@ -230,8 +230,8 @@ const Terms = () => {
                 </p>
                 <ul>
                   <li><strong>Email:</strong> legal@orchesityai.com</li>
-                  <li><strong>Address:</strong> OrchesityAI, Inc., [Address to be updated]</li>
-                  <li><strong>Phone:</strong> [Phone number to be updated]</li>
+                  <li><strong>Address:</strong> OrchesityAI, Inc., 1349 Sea Grove Ct., Gulf Breeze, FL 32563</li>
+                  <li><strong>Phone:</strong> +1 (810) 351-7299</li>
                 </ul>
               </CardContent>
             </Card>

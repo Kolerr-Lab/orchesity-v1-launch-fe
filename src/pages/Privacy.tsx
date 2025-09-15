@@ -195,8 +195,8 @@ const Privacy = () => {
                 </p>
                 <ul>
                   <li><strong>Email:</strong> privacy@orchesityai.com</li>
-                  <li><strong>Address:</strong> OrchesityAI, Inc., [Address to be updated]</li>
-                  <li><strong>Phone:</strong> [Phone number to be updated]</li>
+                  <li><strong>Address:</strong> OrchesityAI, Inc., 1349 Sea Grove Ct., Gulf Breeze, FL 32563</li>
+                  <li><strong>Phone:</strong> +1 (810) 351-7299</li>
                 </ul>
               </CardContent>
             </Card>

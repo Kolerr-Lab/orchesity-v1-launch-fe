@@ -145,7 +145,7 @@ class ApiService {
           token: 'mock-jwt-token-12345',
           user: {
             id: '1',
-            email: 'user@orchesity.dev',
+            email: 'user@orchesityai.com',
             name: 'John Doe',
             avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150',
             subscription: { 
@@ -164,7 +164,7 @@ class ApiService {
           token: 'mock-jwt-token-12345',
           user: {
             id: '1',
-            email: 'user@orchesity.dev',
+            email: 'user@orchesityai.com',
             name: 'John Doe',
             subscription: { 
               id: 'sub_1',
@@ -180,7 +180,7 @@ class ApiService {
       '/auth/profile': {
         data: {
           id: '1',
-          email: 'user@orchesity.dev',
+          email: 'user@orchesityai.com',
           name: 'John Doe',
           avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150',
           subscription: { 
@@ -352,8 +352,8 @@ class ApiService {
       },
       '/users': {
         data: [
-          { id: '1', email: 'admin@orchesity.dev', name: 'Admin User', role: 'admin', createdAt: '2024-01-01T00:00:00Z' },
-          { id: '2', email: 'user@orchesity.dev', name: 'John Doe', role: 'user', createdAt: '2024-01-01T00:00:00Z' }
+          { id: '1', email: 'admin@orchesityai.com', name: 'Admin User', role: 'admin', createdAt: '2024-01-01T00:00:00Z' },
+          { id: '2', email: 'user@orchesityai.com', name: 'John Doe', role: 'user', createdAt: '2024-01-01T00:00:00Z' }
         ]
       },
       '/logs': {
