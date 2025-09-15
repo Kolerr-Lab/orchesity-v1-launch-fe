@@ -1,14 +1,18 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# SEO optimized sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Disallow sensitive areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /assets/
+Disallow: /*.json$
+
+# Allow all other content
+Allow: /
+Allow: /docs/
+Allow: /support/
+Allow: /pricing/

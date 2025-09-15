@@ -2,26 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/logo-symbol.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://checkout.stripe.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: blob: https: *.stripe.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://api.stripe.com wss: https:; frame-src https://js.stripe.com https://hooks.stripe.com https://checkout.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()" />
+    
+    <!-- Performance & SEO -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/logo-symbol.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Meta Information -->
     <title>OrchesityAI - AI Agent Orchestration Platform</title>
     <meta name="description" content="Deploy, manage, and scale intelligent AI agents with RAG-enabled intelligence. From simple automation to complex multi-agent workflows, OrchesityAI makes AI orchestration effortless." />
     <meta name="author" content="OrchesityAI" />
     <meta name="keywords" content="AI agents, machine learning, orchestration, RAG, automation, artificial intelligence" />
     <link rel="canonical" href="/" />
-    <link rel="icon" href="/logo-symbol.png" type="image/png">
 
+    <!-- Open Graph / Social Media -->
     <meta property="og:title" content="OrchesityAI - AI Agent Orchestration Platform" />
     <meta property="og:description" content="Deploy, manage, and scale intelligent AI agents with RAG-enabled intelligence. Transform your workflows with multi-agent orchestration." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/logo-symbol.png" />
+    <meta property="og:url" content="/" />
+    <meta property="og:site_name" content="OrchesityAI" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@OrchesityAI" />
+    <meta name="twitter:title" content="OrchesityAI - AI Agent Orchestration Platform" />
+    <meta name="twitter:description" content="Deploy, manage, and scale intelligent AI agents with RAG-enabled intelligence." />
     <meta name="twitter:image" content="/logo-symbol.png" />
+    
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="//api.stripe.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
   </head>
 
   <body>

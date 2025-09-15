@@ -1,10 +1,21 @@
-// CORS configuration for API integration
+// Production-ready CORS configuration for API integration
 export const corsConfig = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://yourdomain.com', 'https://api.yourdomain.com']
-    : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:8000'],
+    ? [
+        'https://yourdomain.com', 
+        'https://www.yourdomain.com',
+        'https://api.yourdomain.com',
+        // Add your production domains here
+      ]
+    : [
+        'http://localhost:3000', 
+        'http://localhost:5173', 
+        'http://localhost:8000',
+        'http://127.0.0.1:5173',
+        'http://127.0.0.1:3000',
+      ],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: [
     'Content-Type',
     'Authorization',
@@ -12,7 +23,11 @@ export const corsConfig = {
     'X-HTTP-Method-Override',
     'Accept',
     'Origin',
+    'Cache-Control',
+    'X-CSRF-Token',
   ],
+  optionsSuccessStatus: 200, // Legacy browser support
+  maxAge: 86400, // 24 hours
 };
 
 // API Configuration for backend integration
@@ -28,41 +43,85 @@ export const apiConfig = {
   },
 };
 
-// Helper function to setup CORS for API requests
+// Production-ready API client with enhanced error handling and security
 export const setupApiClient = () => {
-  // This would typically be used with axios or fetch interceptors
-  // to automatically handle CORS and authentication headers
+  const makeRequest = async (url: string, options: RequestInit = {}) => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), apiConfig.timeout);
+    
+    try {
+      const response = await fetch(`${apiConfig.baseURL}${url}`, {
+        ...options,
+        headers: { 
+          ...apiConfig.headers, 
+          ...options.headers,
+          // Add CSRF protection
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        credentials: 'include',
+        signal: controller.signal,
+      });
+      
+      clearTimeout(timeoutId);
+      
+      // Handle common HTTP errors
+      if (!response.ok) {
+        if (response.status === 401) {
+          // Handle unauthorized - redirect to login
+          window.location.href = '/auth';
+          throw new Error('Unauthorized');
+        }
+        
+        if (response.status === 403) {
+          throw new Error('Forbidden: Insufficient permissions');
+        }
+        
+        if (response.status >= 500) {
+          throw new Error('Server error: Please try again later');
+        }
+        
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
+      return response;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      
+      if (error.name === 'AbortError') {
+        throw new Error('Request timeout');
+      }
+      
+      throw error;
+    }
+  };
+  
   return {
-    get: (url: string, config?: any) => 
-      fetch(`${apiConfig.baseURL}${url}`, {
-        method: 'GET',
-        headers: { ...apiConfig.headers, ...config?.headers },
-        credentials: 'include',
-        ...config,
-      }),
-    post: (url: string, data?: any, config?: any) =>
-      fetch(`${apiConfig.baseURL}${url}`, {
+    get: (url: string, config?: RequestInit) => 
+      makeRequest(url, { method: 'GET', ...config }),
+      
+    post: (url: string, data?: any, config?: RequestInit) =>
+      makeRequest(url, {
         method: 'POST',
-        headers: { ...apiConfig.headers, ...config?.headers },
-        credentials: 'include',
-        body: JSON.stringify(data),
+        body: data ? JSON.stringify(data) : undefined,
         ...config,
       }),
-    put: (url: string, data?: any, config?: any) =>
-      fetch(`${apiConfig.baseURL}${url}`, {
+      
+    put: (url: string, data?: any, config?: RequestInit) =>
+      makeRequest(url, {
         method: 'PUT',
-        headers: { ...apiConfig.headers, ...config?.headers },
-        credentials: 'include',
-        body: JSON.stringify(data),
+        body: data ? JSON.stringify(data) : undefined,
         ...config,
       }),
-    delete: (url: string, config?: any) =>
-      fetch(`${apiConfig.baseURL}${url}`, {
-        method: 'DELETE',
-        headers: { ...apiConfig.headers, ...config?.headers },
-        credentials: 'include',
+      
+    patch: (url: string, data?: any, config?: RequestInit) =>
+      makeRequest(url, {
+        method: 'PATCH',
+        body: data ? JSON.stringify(data) : undefined,
         ...config,
       }),
+      
+    delete: (url: string, config?: RequestInit) =>
+      makeRequest(url, { method: 'DELETE', ...config }),
   };
 };
 
