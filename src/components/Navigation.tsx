@@ -4,11 +4,17 @@ import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Pu
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout, isAuthenticated } = useAuth();
+  
+  // Close mobile menu when clicking outside
+  const mobileMenuRef = useClickOutside<HTMLDivElement>(() => {
+    if (isOpen) setIsOpen(false);
+  });
 
   const navItems = [
     { label: "Control Center", href: "/dashboard", icon: BarChart3 },
@@ -28,7 +34,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass border-b border-border/20">
+    <nav className="fixed top-0 w-full z-50 glass border-b border-border/20" ref={mobileMenuRef}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
