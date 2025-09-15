@@ -28,13 +28,16 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass border mb-8 group hover:glow-primary transition-all cursor-pointer">
+          <Link 
+            to="/docs" 
+            className="inline-flex items-center px-4 py-2 rounded-full glass border mb-8 group hover:glow-primary transition-all cursor-pointer"
+          >
             <Sparkles className="h-4 w-4 text-primary mr-2" />
             <span className="text-sm font-medium">
               Universal Cloud AI Backend • Plug & Play • Cost Optimized
             </span>
             <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-          </div>
+          </Link>
 
           {/* Main Heading */}
           <h1 className="font-poppins text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight">
