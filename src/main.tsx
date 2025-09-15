@@ -101,6 +101,48 @@ const ResetPassword = lazy(() =>
   )
 );
 
+const About = lazy(() => 
+  import("@/pages/About").catch(() => 
+    import("@/pages/About")
+  )
+);
+
+const Careers = lazy(() => 
+  import("@/pages/Careers").catch(() => 
+    import("@/pages/Careers")
+  )
+);
+
+const Blog = lazy(() => 
+  import("@/pages/Blog").catch(() => 
+    import("@/pages/Blog")
+  )
+);
+
+const Privacy = lazy(() => 
+  import("@/pages/Privacy").catch(() => 
+    import("@/pages/Privacy")
+  )
+);
+
+const Terms = lazy(() => 
+  import("@/pages/Terms").catch(() => 
+    import("@/pages/Terms")
+  )
+);
+
+const Security = lazy(() => 
+  import("@/pages/Security").catch(() => 
+    import("@/pages/Security")
+  )
+);
+
+const Cookies = lazy(() => 
+  import("@/pages/Cookies").catch(() => 
+    import("@/pages/Cookies")
+  )
+);
+
 const NotFound = lazy(() => 
   import("@/pages/NotFound").catch(() => 
     import("@/pages/NotFound")
@@ -148,6 +190,13 @@ const AppContent = () => {
             <Route path="/subscription" element={<Subscription />} />
             <Route path="/cost-calculator" element={<CostCalculator />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/cookies" element={<Cookies />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

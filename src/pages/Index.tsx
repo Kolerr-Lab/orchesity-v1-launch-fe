@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
+import Footer from "@/components/Footer";
 import { FeedbackWidget } from "@/components/support/FeedbackWidget";
 
 const Index = () => {
@@ -10,6 +11,7 @@ const Index = () => {
       <Hero />
       <Features />
       <FeedbackWidget />
+      <Footer />
     </div>
   );
 };
