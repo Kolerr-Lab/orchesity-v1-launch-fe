@@ -6,8 +6,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
 import { CostAnalytics } from "@/components/dashboard/CostAnalytics";
 import { UseCaseShowcase } from "@/components/dashboard/UseCaseShowcase";
-import { FreePlanQuota } from "@/components/quota/FreePlanQuota";
-import { UsageHeader } from "@/components/quota/UsageHeader";
 
 const Dashboard = () => {
   const stats = [
@@ -49,21 +47,13 @@ const Dashboard = () => {
         <div className="container mx-auto px-4">
           {/* Header */}
           <header className="mb-8">
-            <div className="flex items-center justify-between mb-2">
-              <h1 className="text-3xl md:text-4xl font-bold">
-                Orchesity <span className="gradient-text-primary">Control Center</span>
-              </h1>
-              <UsageHeader />
-            </div>
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+              Orchesity <span className="gradient-text-primary">Control Center</span>
+            </h1>
             <p className="text-muted-foreground text-lg">
               Your universal cloud AI backend - monitor costs, manage apps, and optimize performance
             </p>
           </header>
-
-          {/* Free Plan Quota */}
-          <div className="mb-8">
-            <FreePlanQuota />
-          </div>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

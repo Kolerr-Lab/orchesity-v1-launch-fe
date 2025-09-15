@@ -7,7 +7,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Check, ArrowRight, Zap, Crown, Building2, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { usePayments } from '@/hooks/usePayments';
-import { FreePlanQuota } from '@/components/quota/FreePlanQuota';
 
 const plans = [
   {
@@ -100,11 +99,6 @@ export const PricingFunnel = () => {
 
   return (
     <div className="space-y-12">
-      {/* Free Plan Usage Status */}
-      <div className="max-w-md mx-auto">
-        <FreePlanQuota />
-      </div>
-
       {/* Pricing Toggle */}
       <div className="text-center space-y-4">
         <div className="inline-flex items-center space-x-4 p-1 bg-background/20 rounded-lg border border-border/20">
