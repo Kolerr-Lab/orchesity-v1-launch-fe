@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { LoadingProvider } from "@/contexts/LoadingContext";
 import { GlobalLoader } from "@/components/common/GlobalLoader";
+import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { Toaster } from "@/components/ui/sonner";
 import "./index.css";
 
@@ -31,30 +32,32 @@ const App = () => {
       <AuthProvider>
         <Router>
           <GlobalLoader />
-          <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center bg-background">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-            </div>
-          }>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="/auth/callback" element={<AuthCallback />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/agents" element={<Agents />} />
-              <Route path="/orchestration" element={<Orchestration />} />
-              <Route path="/plugins" element={<Plugins />} />
-              <Route path="/metrics" element={<Metrics />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/docs" element={<Docs />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/support" element={<Support />} />
-              <Route path="/subscription" element={<Subscription />} />
-              <Route path="/cost-calculator" element={<CostCalculator />} />
-              <Route path="/reset-password" element={<ResetPassword />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={
+              <div className="min-h-screen flex items-center justify-center bg-background">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+              </div>
+            }>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/auth/callback" element={<AuthCallback />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/agents" element={<Agents />} />
+                <Route path="/orchestration" element={<Orchestration />} />
+                <Route path="/plugins" element={<Plugins />} />
+                <Route path="/metrics" element={<Metrics />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/docs" element={<Docs />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/support" element={<Support />} />
+                <Route path="/subscription" element={<Subscription />} />
+                <Route path="/cost-calculator" element={<CostCalculator />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
           <Toaster />
         </Router>
       </AuthProvider>
