@@ -37,7 +37,7 @@ const Navigation = () => {
               <img 
                 src="/logo-symbol.png" 
                 alt="OrchesityAI Symbol" 
-                className="h-8 w-8 group-hover:opacity-75 transition-all"
+                className="h-8 w-8 group-hover:opacity-75 transition-all dark:invert"
               />
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
