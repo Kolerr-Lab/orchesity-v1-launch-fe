@@ -11,6 +11,7 @@ interface ErrorBoundaryState {
 interface ErrorBoundaryProps {
   children: React.ReactNode;
   fallback?: React.ComponentType<{ error?: Error; resetError: () => void }>;
+  resetKeys?: unknown[];
 }
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -25,6 +26,20 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error('Error caught by boundary:', error, errorInfo);
+  }
+
+  componentDidUpdate(prevProps: ErrorBoundaryProps) {
+    // Reset if route or other provided keys change
+    if (this.state.hasError) {
+      const prevKeys = prevProps.resetKeys ?? [];
+      const nextKeys = this.props.resetKeys ?? [];
+      const keysChanged =
+        prevKeys.length !== nextKeys.length ||
+        prevKeys.some((key, idx) => !Object.is(key, nextKeys[idx]));
+      if (keysChanged) {
+        this.resetError();
+      }
+    }
   }
 
   resetError = () => {
