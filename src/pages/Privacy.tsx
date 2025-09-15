@@ -155,7 +155,7 @@ const Privacy = () => {
                   <li><strong>Objection:</strong> Object to certain types of processing</li>
                 </ul>
                 <p>
-                  To exercise these rights, please contact us at privacy@orchesityai.com.
+                  To exercise these rights, please contact us at privacy@orchesity.com.
                 </p>
               </CardContent>
             </Card>
@@ -194,7 +194,7 @@ const Privacy = () => {
                   If you have any questions about this Privacy Policy or our privacy practices, please contact us:
                 </p>
                 <ul>
-                  <li><strong>Email:</strong> privacy@orchesityai.com</li>
+                  <li><strong>Email:</strong> privacy@orchesity.com</li>
                   <li><strong>Address:</strong> OrchesityAI, Inc., 1349 Sea Grove Ct., Gulf Breeze, FL 32563</li>
                   <li><strong>Phone:</strong> +1 (810) 351-7299</li>
                 </ul>

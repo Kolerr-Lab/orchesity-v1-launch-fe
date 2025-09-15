@@ -74,7 +74,7 @@ export const ApiPlayground = () => {
     setResponse('');
 
     try {
-      const baseUrl = 'https://api.orchesityai.com';
+      const baseUrl = 'https://api.orchesity.com';
       const url = `${baseUrl}${endpoint}`;
       
       const options: RequestInit = {

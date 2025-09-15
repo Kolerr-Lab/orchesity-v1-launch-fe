@@ -182,7 +182,7 @@ const Cookies = () => {
                   If you have any questions about our use of cookies, please contact us:
                 </p>
                 <ul>
-                  <li><strong>Email:</strong> privacy@orchesityai.com</li>
+                  <li><strong>Email:</strong> privacy@orchesity.com</li>
                   <li><strong>Address:</strong> OrchesityAI, Inc., 1349 Sea Grove Ct., Gulf Breeze, FL 32563</li>
                   <li><strong>Phone:</strong> +1 (810) 351-7299</li>
                 </ul>

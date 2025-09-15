@@ -30,7 +30,7 @@ const Footer = () => {
                  className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="mailto:contact@orchesityai.com"
+              <a href="mailto:contact@orchesity.com"
                  className="text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-5 w-5" />
               </a>
