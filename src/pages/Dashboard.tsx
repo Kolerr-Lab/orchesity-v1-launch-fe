@@ -46,14 +46,14 @@ const Dashboard = () => {
       <main className="pt-24 pb-12">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="mb-8">
+          <header className="mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">
               Orchesity <span className="gradient-text-primary">Control Center</span>
             </h1>
             <p className="text-muted-foreground text-lg">
               Your universal cloud AI backend - monitor costs, manage apps, and optimize performance
             </p>
-          </div>
+          </header>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -99,26 +99,46 @@ const Dashboard = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {[
-                        { name: "CustomerCare SaaS", type: "React App", requests: "45.2K", cost: "$108" },
-                        { name: "MobileAnalytics", type: "React Native", requests: "32.1K", cost: "$77" },
-                        { name: "EnterpriseBot", type: "Java Spring", requests: "28.9K", cost: "$69" },
-                        { name: "WebPortal", type: "Next.js", requests: "15.3K", cost: "$37" },
-                      ].map((app) => (
-                        <div key={app.name} className="flex items-center justify-between p-3 rounded-lg bg-secondary/20 border border-border/10">
-                          <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 rounded-full bg-green-400" />
-                            <div>
-                              <p className="font-medium">{app.name}</p>
-                              <p className="text-sm text-muted-foreground">{app.type} • {app.requests} requests</p>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <p className="font-semibold text-green-400">{app.cost}</p>
-                            <p className="text-xs text-muted-foreground">this month</p>
+                {[
+                  { name: "CustomerCare SaaS", type: "React App", requests: "45.2K", cost: "$108", status: "active" },
+                  { name: "MobileAnalytics", type: "React Native", requests: "32.1K", cost: "$77", status: "active" },
+                  { name: "EnterpriseBot", type: "Java Spring", requests: "28.9K", cost: "$69", status: "active" },
+                  { name: "WebPortal", type: "Next.js", requests: "15.3K", cost: "$37", status: "active" },
+                ].map((app) => (
+                  <div key={app.name} className="flex items-center justify-between p-4 rounded-lg glass border border-border/20 hover:glow-accent transition-all group">
+                    <div className="flex items-center gap-3 flex-1">
+                      <div className="w-3 h-3 rounded-full bg-green-400 shadow-sm" />
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <p className="font-semibold text-foreground">{app.name}</p>
+                          <div className="flex items-center gap-2">
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              className="opacity-0 group-hover:opacity-100 transition-all h-8 px-3 text-xs"
+                              onClick={() => window.open(`/apps/${app.name.toLowerCase().replace(/\s+/g, '-')}`, '_blank')}
+                            >
+                              Manage
+                            </Button>
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="h-8 px-3 text-xs"
+                              asChild
+                            >
+                              <Link to="/metrics">Analytics</Link>
+                            </Button>
                           </div>
                         </div>
-                      ))}
+                        <p className="text-sm text-muted-foreground">{app.type} • {app.requests} requests</p>
+                      </div>
+                    </div>
+                    <div className="text-right ml-4">
+                      <p className="font-bold text-green-400">{app.cost}</p>
+                      <p className="text-xs text-muted-foreground">this month</p>
+                    </div>
+                  </div>
+                ))}
                     </div>
                   </CardContent>
                 </Card>
@@ -162,35 +182,58 @@ const Dashboard = () => {
             </TabsContent>
 
             <TabsContent value="integrations" className="space-y-6">
-              <div className="text-center mb-8">
+              <header className="text-center mb-8">
                 <h2 className="text-2xl font-bold mb-2">Integration Hub</h2>
                 <p className="text-muted-foreground">
                   Connect Orchesity to your existing applications and services
                 </p>
-              </div>
+              </header>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  { name: "REST API", status: "Active", integrations: "12 apps", docs: "View Docs" },
-                  { name: "GraphQL", status: "Active", integrations: "3 apps", docs: "View Docs" },
-                  { name: "WebSockets", status: "Active", integrations: "5 apps", docs: "View Docs" },
-                  { name: "Stripe", status: "Configured", integrations: "Payment ready", docs: "Manage" },
-                  { name: "OAuth Providers", status: "Active", integrations: "Google, GitHub", docs: "Configure" },
-                  { name: "Webhooks", status: "Active", integrations: "8 endpoints", docs: "Manage" },
+                  { name: "REST API", status: "Active", integrations: "12 apps", docs: "View Docs", action: "docs" },
+                  { name: "GraphQL", status: "Active", integrations: "3 apps", docs: "View Docs", action: "docs" },
+                  { name: "WebSockets", status: "Active", integrations: "5 apps", docs: "View Docs", action: "docs" },
+                  { name: "Stripe", status: "Configured", integrations: "Payment ready", docs: "Manage", action: "subscription" },
+                  { name: "OAuth Providers", status: "Active", integrations: "Google, GitHub", docs: "Configure", action: "settings" },
+                  { name: "Webhooks", status: "Active", integrations: "8 endpoints", docs: "Manage", action: "settings" },
                 ].map((integration) => (
-                  <Card key={integration.name} className="glass border-border/20 hover:glow-accent transition-all">
-                    <CardHeader>
-                      <CardTitle className="text-lg">{integration.name}</CardTitle>
-                      <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 rounded-full ${integration.status === 'Active' ? 'bg-green-400' : 'bg-primary'}`} />
-                        <span className="text-sm text-muted-foreground">{integration.status}</span>
+                  <Card key={integration.name} className="glass border-border/20 hover:glow-accent transition-all group">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="text-lg font-semibold">{integration.name}</CardTitle>
+                        <div className="flex items-center gap-2">
+                          <div className={`w-3 h-3 rounded-full shadow-sm ${integration.status === 'Active' ? 'bg-green-400' : 'bg-primary'}`} />
+                          <span className="text-sm font-medium text-muted-foreground">{integration.status}</span>
+                        </div>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">{integration.integrations}</p>
-                      <Button asChild variant="outline" size="sm" className="w-full">
-                        <Link to="/docs">{integration.docs}</Link>
-                      </Button>
+                    <CardContent className="pt-0">
+                      <p className="text-sm text-muted-foreground mb-4 font-medium">{integration.integrations}</p>
+                      <div className="flex gap-2">
+                        <Button 
+                          asChild 
+                          variant="outline" 
+                          size="sm" 
+                          className="flex-1 font-medium"
+                        >
+                          <Link to={`/${integration.action}`}>{integration.docs}</Link>
+                        </Button>
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="opacity-0 group-hover:opacity-100 transition-all px-3"
+                          onClick={() => {
+                            if (integration.name === "Stripe") {
+                              window.open("/subscription", "_blank");
+                            } else {
+                              window.open(`/docs#${integration.name.toLowerCase().replace(/\s+/g, '-')}`, "_blank");
+                            }
+                          }}
+                        >
+                          ↗
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
@@ -213,22 +256,22 @@ const Dashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <Button asChild variant="hero" className="h-20 flex-col gap-2">
-                    <Link to="/agents">
+                  <Button asChild variant="hero" className="h-20 flex-col gap-2 hover:scale-105 transition-transform">
+                    <Link to="/agents" className="w-full">
                       <Bot className="h-6 w-6" />
-                      Deploy New Agent
+                      <span className="font-semibold">Deploy New Agent</span>
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" className="h-20 flex-col gap-2 glass">
-                    <Link to="/metrics">
+                  <Button asChild variant="outline" className="h-20 flex-col gap-2 glass hover:glow-accent transition-all">
+                    <Link to="/metrics" className="w-full">
                       <Cpu className="h-6 w-6" />
-                      View Analytics
+                      <span className="font-semibold">View Analytics</span>
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" className="h-20 flex-col gap-2 glass">
-                    <Link to="/metrics">
+                  <Button asChild variant="outline" className="h-20 flex-col gap-2 glass hover:glow-accent transition-all">
+                    <Link to="/cost-calculator" className="w-full">
                       <BarChart3 className="h-6 w-6" />
-                      Generate Report
+                      <span className="font-semibold">Cost Calculator</span>
                     </Link>
                   </Button>
                 </div>

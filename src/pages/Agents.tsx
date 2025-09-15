@@ -59,7 +59,14 @@ const Agents = () => {
                 Manage and monitor your intelligent agent fleet
               </p>
             </div>
-            <Button variant="hero" className="glow-primary">
+            <Button 
+              variant="hero" 
+              className="glow-primary"
+              onClick={() => {
+                // Mock agent creation
+                alert('Agent deployment initiated! This would open the agent creation wizard.');
+              }}
+            >
               <Plus className="h-4 w-4 mr-2" />
               Deploy New Agent
             </Button>
@@ -82,7 +89,13 @@ const Agents = () => {
                         </CardDescription>
                       </div>
                     </div>
-                    <Button variant="ghost" size="sm">
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => {
+                        alert(`Agent ${agent.name} settings menu would open here.`);
+                      }}
+                    >
                       <MoreVertical className="h-4 w-4" />
                     </Button>
                   </div>
@@ -119,6 +132,10 @@ const Agents = () => {
                       variant={agent.status === 'active' ? 'outline' : 'hero'} 
                       size="sm" 
                       className="flex-1"
+                      onClick={() => {
+                        const action = agent.status === 'active' ? 'paused' : 'started';
+                        alert(`Agent ${agent.name} has been ${action}!`);
+                      }}
                     >
                       {agent.status === 'active' ? (
                         <>
@@ -132,7 +149,13 @@ const Agents = () => {
                         </>
                       )}
                     </Button>
-                    <Button variant="ghost" size="sm">
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => {
+                        alert(`Opening settings for ${agent.name}...`);
+                      }}
+                    >
                       <Settings className="h-4 w-4" />
                     </Button>
                   </div>
@@ -151,7 +174,13 @@ const Agents = () => {
               <p className="text-muted-foreground mb-4">
                 Scale your operations with additional AI agents tailored to your needs
               </p>
-              <Button variant="hero" className="glow-primary">
+              <Button 
+                variant="hero" 
+                className="glow-primary"
+                onClick={() => {
+                  alert('Agent creation wizard would open here!');
+                }}
+              >
                 <Plus className="h-4 w-4 mr-2" />
                 Create New Agent
               </Button>
