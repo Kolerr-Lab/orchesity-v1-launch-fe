@@ -11,25 +11,19 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="absolute inset-0 animated-bg opacity-40" />
+      {/* Elegant gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/70 to-background/80" />
       
-      {/* Brighter background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/70" />
+      {/* Static gradient orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-accent/15 to-accent/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-2xl" />
       
-      {/* Glow Effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-20 float">
-        <Cpu className="h-8 w-8 text-primary/40" />
-      </div>
-      <div className="absolute top-40 right-32 float" style={{ animationDelay: "1s" }}>
-        <Network className="h-6 w-6 text-accent/40" />
-      </div>
-      <div className="absolute bottom-40 left-32 float" style={{ animationDelay: "2s" }}>
-        <Sparkles className="h-10 w-10 text-primary/30" />
-      </div>
+      {/* Subtle geometric elements */}
+      <div className="absolute top-32 right-20 w-2 h-2 bg-primary/30 rounded-full"></div>
+      <div className="absolute top-48 left-1/4 w-1 h-1 bg-accent/40 rounded-full"></div>
+      <div className="absolute bottom-32 left-20 w-1.5 h-1.5 bg-primary/25 rounded-full"></div>
+      <div className="absolute bottom-48 right-1/3 w-1 h-1 bg-accent/30 rounded-full"></div>
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
