@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity, Calculator, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
 
@@ -74,6 +75,7 @@ const Navigation = () => {
 
           {/* CTA Buttons / User Menu */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             {isAuthenticated ? (
               <>
                 <div className="flex items-center space-x-2 text-sm">
@@ -140,6 +142,9 @@ const Navigation = () => {
                     <User className="h-5 w-5 text-primary/70" />
                     <span className="tracking-wide">{user?.name}</span>
                   </div>
+                  <div className="flex justify-center mb-3">
+                    <ThemeToggle />
+                  </div>
                   <div className="px-2">
                     <Button 
                       variant="ghost" 
@@ -170,6 +175,9 @@ const Navigation = () => {
                   </Link>
                 ))}
                 <div className="pt-4 space-y-3 bg-background/40 rounded-b-lg p-4 mt-4 border-t border-border/30">
+                  <div className="flex justify-center mb-3">
+                    <ThemeToggle />
+                  </div>
                   <Link to="/auth" onClick={() => setIsOpen(false)}>
                     <Button variant="ghost" size="sm" className="w-full justify-start font-bold text-base py-4 bg-background/60 border border-border/10 hover:bg-secondary/50">
                       Sign In

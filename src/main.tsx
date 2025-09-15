@@ -3,9 +3,10 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { LoadingProvider } from "@/contexts/LoadingContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GlobalLoader } from "@/components/common/GlobalLoader";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 import { initPerformanceMonitoring } from "@/lib/performance";
 import { productionSecurityChecklist } from "@/lib/security";
 import "./index.css";
@@ -208,13 +209,15 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <LoadingProvider>
-      <AuthProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </AuthProvider>
-    </LoadingProvider>
+    <ThemeProvider defaultTheme="system" storageKey="orchesity-ui-theme">
+      <LoadingProvider>
+        <AuthProvider>
+          <Router>
+            <AppContent />
+          </Router>
+        </AuthProvider>
+      </LoadingProvider>
+    </ThemeProvider>
   );
 };
 
