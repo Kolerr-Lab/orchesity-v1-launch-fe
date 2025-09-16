@@ -31,12 +31,6 @@ export const LoginForm = ({ onToggleMode }: LoginFormProps) => {
     setIsLoading(true);
     try {
       await login(email, password);
-      // Check for redirect path after successful login
-      const redirectPath = sessionStorage.getItem('redirectAfterLogin');
-      if (redirectPath) {
-        sessionStorage.removeItem('redirectAfterLogin');
-        window.location.href = redirectPath;
-      }
     } catch (error) {
       // Error handled in AuthContext
     } finally {
