@@ -11,8 +11,31 @@
   # Content Security Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://checkout.stripe.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: blob: https: *.stripe.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://api.stripe.com wss: https:; frame-src https://js.stripe.com https://hooks.stripe.com https://checkout.stripe.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;
   
+  # MIME Types for JavaScript and Assets
+  Content-Type: application/javascript
+  
   # Cache Control
   Cache-Control: public, max-age=31536000, immutable
+
+# JavaScript files with correct MIME type
+*.js
+  Content-Type: application/javascript
+  
+*.mjs
+  Content-Type: application/javascript
+  
+*.jsx
+  Content-Type: application/javascript
+  
+*.ts
+  Content-Type: application/javascript
+  
+*.tsx
+  Content-Type: application/javascript
+
+# CSS files
+*.css
+  Content-Type: text/css
 
 # API routes with CORS headers
 /api/*
