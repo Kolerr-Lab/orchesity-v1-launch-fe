@@ -13,6 +13,8 @@ export interface User {
   name: string;
   avatar?: string;
   subscription?: Subscription;
+  role?: string;
+  permissions?: string[];
   createdAt: string;
 }
 
@@ -148,6 +150,8 @@ class ApiService {
             email: 'user@orchesity.com',
             name: 'John Doe',
             avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150',
+            role: 'admin',
+            permissions: ['agents:read', 'agents:write', 'agents:delete', 'users:manage', 'system:admin'],
             subscription: { 
               id: 'sub_1',
               plan: 'Pro', 
@@ -166,6 +170,8 @@ class ApiService {
             id: '1',
             email: 'user@orchesity.com',
             name: 'John Doe',
+            role: 'user',
+            permissions: ['agents:read'],
             subscription: { 
               id: 'sub_1',
               plan: 'Starter', 
@@ -183,6 +189,8 @@ class ApiService {
           email: 'user@orchesity.com',
           name: 'John Doe',
           avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150',
+          role: 'admin',
+          permissions: ['agents:read', 'agents:write', 'agents:delete', 'users:manage', 'system:admin'],
           subscription: { 
             id: 'sub_1',
             plan: 'Pro', 

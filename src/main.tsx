@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GlobalLoader } from "@/components/common/GlobalLoader";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { Toaster } from "@/components/ui/toaster";
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { initPerformanceMonitoring } from "@/lib/performance";
 import { productionSecurityChecklist } from "@/lib/security";
 import "./index.css";
@@ -179,12 +180,32 @@ const AppContent = () => {
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
             <Route path="/agents" element={<Agents />} />
-            <Route path="/orchestration" element={<Orchestration />} />
-            <Route path="/plugins" element={<Plugins />} />
-            <Route path="/metrics" element={<Metrics />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/orchestration" element={
+              <ProtectedRoute>
+                <Orchestration />
+              </ProtectedRoute>
+            } />
+            <Route path="/plugins" element={
+              <ProtectedRoute>
+                <Plugins />
+              </ProtectedRoute>
+            } />
+            <Route path="/metrics" element={
+              <ProtectedRoute>
+                <Metrics />
+              </ProtectedRoute>
+            } />
+            <Route path="/settings" element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            } />
             <Route path="/docs" element={<Docs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/support" element={<Support />} />
