@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Terms = () => {
-  const lastUpdated = "December 15, 2024";
+  const lastUpdated = "January 15, 2025";
 
   return (
     <div className="min-h-screen bg-background">

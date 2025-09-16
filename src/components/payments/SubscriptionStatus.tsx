@@ -35,11 +35,8 @@ export const SubscriptionStatus = () => {
       
       setSubscription(activeSubscription);
     } catch (error) {
-      toast({
-        title: 'Error loading subscription',
-        description: 'Failed to load subscription information',
-        variant: 'destructive',
-      });
+      // Silently handle error without toast notification
+      console.error('Failed to load subscription information:', error);
     } finally {
       setIsLoading(false);
     }

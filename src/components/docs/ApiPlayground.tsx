@@ -51,7 +51,7 @@ export const ApiPlayground = () => {
     },
     '/api/agent/universal-prompt': {
       POST: `{
-  "prompt": "Analyze the sales performance for Q4 2024",
+  "prompt": "Analyze the sales performance for Q1 2025",
   "model": "claude-3-sonnet",
   "useRAG": true,
   "context": ["sales-reports", "quarterly-data"],
