@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity, Calculator, MessageCircle } from "lucide-react";
+import { Menu, X, Zap, Bot, BarChart3, Settings, BookOpen, LogOut, User, Cpu, Puzzle, Activity, Calculator, MessageCircle, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useAuth } from "@/contexts/AuthContext";
@@ -28,6 +28,7 @@ const Navigation = () => {
 
   const publicNavItems = [
     { label: "Documentation", href: "/docs", icon: BookOpen },
+    { label: "Blog", href: "/blog", icon: FileText },
     { label: "Cost Calculator", href: "/cost-calculator", icon: Calculator },
     { label: "Pricing", href: "/subscription", icon: Zap },
     { label: "Contact", href: "/contact", icon: MessageCircle },
