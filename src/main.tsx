@@ -150,6 +150,55 @@ const NotFound = lazy(() =>
   )
 );
 
+// Orchesity specific pages
+const Generate = lazy(() => 
+  import("@/pages/Generate").catch(() => 
+    import("@/pages/Generate")
+  )
+);
+
+const GenerationStatus = lazy(() => 
+  import("@/pages/GenerationStatus").catch(() => 
+    import("@/pages/GenerationStatus")
+  )
+);
+
+const ProjectPreview = lazy(() => 
+  import("@/pages/ProjectPreview").catch(() => 
+    import("@/pages/ProjectPreview")
+  )
+);
+
+const AgentDashboard = lazy(() => 
+  import("@/pages/AgentDashboard").catch(() => 
+    import("@/pages/AgentDashboard")
+  )
+);
+
+const ExamplesGallery = lazy(() => 
+  import("@/pages/ExamplesGallery").catch(() => 
+    import("@/pages/ExamplesGallery")
+  )
+);
+
+const BillingDashboard = lazy(() => 
+  import("@/pages/BillingDashboard").catch(() => 
+    import("@/pages/BillingDashboard")
+  )
+);
+
+const DeploymentsList = lazy(() => 
+  import("@/pages/DeploymentsList").catch(() => 
+    import("@/pages/DeploymentsList")
+  )
+);
+
+const AdminPanel = lazy(() => 
+  import("@/pages/AdminPanel").catch(() => 
+    import("@/pages/AdminPanel")
+  )
+);
+
 const AppContent = () => {
   const location = useLocation();
 
@@ -176,15 +225,50 @@ const AppContent = () => {
           }
         >
           <Routes>
+            {/* Core Pages */}
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
+            <Route path="/auth/github/callback" element={<AuthCallback />} />
+            
+            {/* Dashboard */}
             <Route path="/dashboard" element={<Dashboard />} />
+            
+            {/* Backend Generator (Main Feature) */}
+            <Route path="/generate" element={<Generate />} />
+            <Route path="/generate/status/:id" element={<GenerationStatus />} />
+            <Route path="/generate/preview/:id" element={<ProjectPreview />} />
+            <Route path="/generate/examples" element={<ExamplesGallery />} />
+            
+            {/* Agent Dashboard */}
+            <Route path="/agent" element={<AgentDashboard />} />
+            <Route path="/agent/batch" element={<AgentDashboard />} />
+            <Route path="/agent/history" element={<AgentDashboard />} />
+            <Route path="/agent/status" element={<AgentDashboard />} />
+            
+            {/* Billing & Subscription */}
+            <Route path="/billing" element={<BillingDashboard />} />
+            <Route path="/billing/plans" element={<BillingDashboard />} />
+            <Route path="/billing/history" element={<BillingDashboard />} />
+            
+            {/* Project Management */}
+            <Route path="/deployments" element={<DeploymentsList />} />
+            <Route path="/integrations" element={<DeploymentsList />} />
+            <Route path="/repositories" element={<DeploymentsList />} />
+            
+            {/* Admin Panel */}
+            <Route path="/admin/metrics" element={<AdminPanel />} />
+            <Route path="/admin/users" element={<AdminPanel />} />
+            <Route path="/admin/usage" element={<AdminPanel />} />
+            
+            {/* Legacy Routes */}
             <Route path="/agents" element={<Agents />} />
             <Route path="/orchestration" element={<Orchestration />} />
             <Route path="/plugins" element={<Plugins />} />
             <Route path="/metrics" element={<Metrics />} />
             <Route path="/settings" element={<Settings />} />
+            
+            {/* Static Pages */}
             <Route path="/docs" element={<Docs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/support" element={<Support />} />

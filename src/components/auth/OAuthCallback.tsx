@@ -4,7 +4,7 @@ import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
-import { authService } from '@/services/auth.service';
+import { orchesityService } from '@/services/orchesity.service';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 import { AlertCircle } from 'lucide-react';
@@ -43,14 +43,17 @@ export const OAuthCallback = () => {
       }
 
       try {
-        const response = await authService.handleOAuthCallback(provider, code, state || undefined);
-        
-        // Store tokens
-        localStorage.setItem('access_token', response.access_token);
-        localStorage.setItem('refresh_token', response.refresh_token);
-        
-        // Update auth context
-        await login(response.user.email, ''); // OAuth doesn't use password
+        if (provider === 'github') {
+          const authResponse = await orchesityService.handleGitHubCallback(code, state);
+          localStorage.setItem('access_token', authResponse.data.access_token);
+          localStorage.setItem('refresh_token', authResponse.data.refresh_token);
+          
+          // Update auth context - simplified for now
+          setIsLoading(false);
+          navigate('/dashboard');
+        } else {
+          throw new Error('Unsupported OAuth provider');
+        }
         
         toast({
           title: 'Welcome!',
