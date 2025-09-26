@@ -21,7 +21,7 @@ const AgentChatInterface = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      content: "Hello! I'm your Orchesity AI Agent. I can help you generate backends, manage AI workflows, or answer questions about our platform. What would you like to build today?",
+      content: "Hello! I'm your Orchesity META Agent. I can generate complete production-ready backends from natural language prompts, including database models, APIs, authentication, tests, and Docker configs. What backend would you like me to create for you?",
       role: 'assistant',
       timestamp: new Date(),
     }
@@ -103,8 +103,8 @@ const AgentChatInterface = () => {
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse" />
             </div>
             <div>
-              <CardTitle className="text-xl font-semibold">Orchesity AI Agent</CardTitle>
-              <p className="text-sm text-muted-foreground">Ready to help you build</p>
+              <CardTitle className="text-xl font-semibold">Orchesity META Agent</CardTitle>
+              <p className="text-sm text-muted-foreground">Infrastructure as Prompt</p>
             </div>
           </div>
           <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
@@ -186,7 +186,7 @@ const AgentChatInterface = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask me to generate a backend, explain AI concepts, or help with your project..."
+              placeholder="Describe your backend: 'Build me a task management API with user auth and real-time updates'..."
               className="min-h-[60px] max-h-32 resize-none pr-12 bg-background/80 border-primary/20 focus:border-primary/40"
               disabled={isLoading}
             />
@@ -207,7 +207,7 @@ const AgentChatInterface = () => {
           <div className="flex items-center justify-between text-xs text-muted-foreground">
             <span>Press Enter to send, Shift+Enter for new line</span>
             <span className="text-primary font-medium">
-              Powered by Claude Sonnet 4
+              META Agent • End-to-End Generation
             </span>
           </div>
         </form>

@@ -24,11 +24,11 @@ const Index = () => {
             <div className="container mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Chat with Your <span className="gradient-text-primary">AI Agent</span>
+                  Transform Ideas into <span className="gradient-text-primary">Complete Backends</span>
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Generate backends, optimize workflows, or get instant help with your projects. 
-                  Start a conversation with our intelligent AI assistant.
+                  Experience Infrastructure as Prompt. Describe your backend needs and watch our META Agent 
+                  generate production-ready code with databases, APIs, authentication, and deployment configs.
                 </p>
               </div>
               <AgentChatInterface />
