@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Github, Chrome, Loader2 } from 'lucide-react';
-import { orchesityService } from '@/services/orchesity.service';
+import { authService } from '@/services/auth.service';
 import { useToast } from '@/hooks/use-toast';
 
 interface OAuthButtonsProps {
@@ -17,10 +17,10 @@ export const OAuthButtons = ({ disabled = false, variant = 'outline' }: OAuthBut
     setLoadingProvider(provider);
     
     try {
-      if (provider === 'github') {
-        orchesityService.initiateGitHubAuth();
+      if (provider === 'google') {
+        authService.initiateGoogleAuth();
       } else {
-        throw new Error('Google OAuth not implemented yet');
+        authService.initiateGitHubAuth();
       }
     } catch (error) {
       toast({
@@ -37,7 +37,7 @@ export const OAuthButtons = ({ disabled = false, variant = 'outline' }: OAuthBut
       <Button
         variant={variant}
         onClick={() => handleOAuthLogin('google')}
-        disabled={true}
+        disabled={disabled || loadingProvider !== null}
         className="w-full"
       >
         {loadingProvider === 'google' ? (
@@ -45,7 +45,7 @@ export const OAuthButtons = ({ disabled = false, variant = 'outline' }: OAuthBut
         ) : (
           <Chrome className="mr-2 h-4 w-4" />
         )}
-        Google (Soon)
+        Google
       </Button>
       
       <Button

@@ -34,23 +34,23 @@ const Hero = () => {
           >
             <Sparkles className="h-4 w-4 text-primary mr-2" />
             <span className="text-sm font-medium">
-              Infrastructure as Prompt • META Agent • End-to-End Backend Generation
+              Universal Cloud AI Backend • Plug & Play • Cost Optimized
             </span>
             <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
 
           {/* Main Heading */}
           <h1 className="font-inter text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight">
-            Orchesity{" "}
-            <span className="gradient-text-primary font-bold">META Agent</span>
+            Universal{" "}
+            <span className="gradient-text-primary font-bold">Cloud AI</span>
             <br />
-            <span className="font-bold">Infrastructure as Prompt</span>
+            <span className="font-bold">Backend for Every App</span>
           </h1>
 
           {/* Subtitle */}
           <p className="font-inter text-xl md:text-2xl font-normal text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Transform any idea into a complete, production-ready AI backend with a single prompt. 
-            Our META Agent generates full-stack backends with database models, APIs, authentication, tests, and Docker configs.
+            The only AI backend you'll ever need. Plug into any app, any language, any use case. 
+            Save up to 70% on LLM costs with smart orchestration, caching, and provider optimization.
           </p>
 
           {/* CTA Buttons */}
@@ -60,8 +60,8 @@ const Hero = () => {
               size="lg" 
               className="font-inter text-lg font-semibold px-8 py-6 glow-primary pulse-glow group"
             >
-              <Link to="/generate">
-                Generate Complete Backend
+              <Link to="/auth">
+                Start Building Agents
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -80,19 +80,19 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
               { 
-                label: "Generation Time", 
-                value: "30-120s", 
-                description: "Complete backend ready"
+                label: "Cost Reduction", 
+                value: "Up to 70%", 
+                description: "Smart caching & optimization"
               },
               { 
-                label: "7-Phase Process", 
-                value: "End-to-End", 
-                description: "Design → Code → Test → Deploy"
+                label: "Universal Backend", 
+                value: "Any Stack", 
+                description: "React, Vue, Mobile, APIs"
               },
               { 
-                label: "Production Ready", 
-                value: "100%", 
-                description: "Docker + Infrastructure included"
+                label: "Enterprise Ready", 
+                value: "99.99%", 
+                description: "SLA uptime guarantee"
               },
             ].map((benefit, index) => (
               <div 

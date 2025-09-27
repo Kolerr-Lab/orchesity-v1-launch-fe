@@ -1,4 +1,4 @@
-import { Bot, Brain, Gauge, Shield, Zap, Database, Code, Layers, GitBranch } from "lucide-react";
+import { Bot, Brain, Gauge, Shield, Zap, Database } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,38 +7,38 @@ const Features = () => {
   const features = [
     {
       icon: Zap,
-      title: "7-Phase Generation Process",
-      description: "Complete backend generation through Requirements → Design → Code → Test → Deploy → Review → Optimize phases with AI quality assurance.",
+      title: "Cost Optimization Engine",
+      description: "Save up to 70% on LLM costs with smart batching, intelligent caching, optimal provider selection, and advanced orchestration strategies.",
       gradient: "from-primary to-primary-glow",
     },
     {
-      icon: Code,
-      title: "Production-Ready Output",
-      description: "Generate complete backends with database models, API endpoints, authentication, tests, Docker configs, and monitoring - ready to deploy.",
+      icon: Bot,
+      title: "Universal Backend",
+      description: "Plug into any app, any programming language, any use case. No need to build or maintain your own AI infrastructure.",
       gradient: "from-accent to-blue-400",
     },
     {
-      icon: Brain,
-      title: "Intelligent Orchestration",
-      description: "4 LLM providers with dynamic selection, adaptive processing for optimal performance, and intelligent routing for every request type.",
+      icon: Shield,
+      title: "Business-Ready Security",
+      description: "Enterprise-grade OAuth, Stripe payments, SOC2 compliance, and robust authentication. Production-ready from day one.",
       gradient: "from-green-400 to-emerald-400",
     },
     {
-      icon: Shield,
-      title: "AI-Powered Quality Assurance",
-      description: "Automated code review, security validation, performance optimization, and auto-fixing with industry best practices built-in.",
+      icon: Gauge,
+      title: "Cost Analytics Dashboard",
+      description: "Real-time cost tracking, usage analytics, optimization recommendations, and ROI insights across all your AI operations.",
       gradient: "from-orange-400 to-red-400",
     },
     {
-      icon: Layers,
-      title: "Multi-Step Async Processing",
-      description: "Kafka-powered async processing for large projects, Redis caching for performance, and real-time progress tracking throughout generation.",
+      icon: Brain,
+      title: "Multi-Tenant Architecture",
+      description: "Seamlessly manage multiple organizations, workspaces, and teams with isolated environments and granular access controls.",
       gradient: "from-yellow-400 to-orange-400",
     },
     {
-      icon: GitBranch,
-      title: "Infrastructure as Code",
-      description: "Complete infrastructure setup including Docker containers, deployment scripts, monitoring, logging, and scalable architecture patterns.",
+      icon: Database,
+      title: "Plugin Ecosystem",
+      description: "Extensive marketplace of pre-built integrations for CRMs, databases, APIs, and third-party services. Custom plugin support included.",
       gradient: "from-purple-400 to-pink-400",
     },
   ];
@@ -49,12 +49,12 @@ const Features = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Revolutionary{" "}
-            <span className="gradient-text-primary">META Agent</span>
+            Why Choose{" "}
+            <span className="gradient-text-primary">Orchesity</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Transform any idea into production-ready infrastructure. Our META Agent revolutionizes backend development 
-            with end-to-end generation from natural language to deployable code.
+            The only cloud AI backend you'll ever need. Built for developers, optimized for business, 
+            trusted by enterprises. From SaaS to mobile apps to enterprise tools.
           </p>
         </div>
 
@@ -89,12 +89,12 @@ const Features = () => {
 
         {/* Use Cases Section */}
         <div className="text-center mt-20 mb-16">
-          <h3 className="text-3xl font-bold mb-8">From Prompt to Production in Minutes</h3>
+          <h3 className="text-3xl font-bold mb-8">Perfect For Any Use Case</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
             {[
-              { title: "Task Management API", desc: "\"Build me a task management API\" → Complete REST API with auth, database, tests" },
-              { title: "E-commerce Backend", desc: "\"Create an e-commerce backend\" → Full microservices with payments, inventory, orders" },
-              { title: "Social Media Platform", desc: "\"Design a social platform backend\" → Scalable API with feeds, users, content management" }
+              { title: "SaaS Applications", desc: "Add AI chat, automation, and intelligence to your existing SaaS platform" },
+              { title: "Mobile Apps", desc: "Integrate powerful AI capabilities into iOS and Android apps with simple APIs" },
+              { title: "Enterprise Tools", desc: "Scale AI across your organization with security, compliance, and cost control" }
             ].map((useCase) => (
               <div key={useCase.title} className="glass rounded-lg p-6 hover:glow-accent transition-all">
                 <h4 className="font-semibold mb-2">{useCase.title}</h4>
@@ -107,16 +107,16 @@ const Features = () => {
         {/* Bottom CTA */}
         <div className="text-center">
           <div className="glass rounded-2xl p-8 max-w-2xl mx-auto hover:glow-primary transition-all">
-            <h3 className="text-2xl font-bold mb-4">Experience Infrastructure as Prompt</h3>
+            <h3 className="text-2xl font-bold mb-4">Start Saving on AI Costs Today</h3>
             <p className="text-muted-foreground mb-6">
-              Join the revolution in backend development. Transform ideas into production-ready infrastructure with a single prompt.
+              The universal cloud AI backend trusted by developers building the next generation of applications
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" className="px-6 py-3 hover:scale-105 transition-transform">
-                <Link to="/generate">Generate Your Backend</Link>
+                <Link to="/auth">Start Building Free</Link>
               </Button>
               <Button asChild variant="outline" className="px-6 py-3 glass border border-border/20 hover:bg-secondary/50 transition-colors">
-                <Link to="/generate/examples">View Examples</Link>
+                <Link to="/cost-calculator">Calculate Savings</Link>
               </Button>
             </div>
           </div>
