@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { AuthUser } from '@/types/orchesity';
-import { authService } from '@/services/auth.service';
+import { orchesityService } from '@/services/orchesity.service';
 import { useToast } from '@/hooks/use-toast';
 
 interface AuthContextType {
@@ -42,7 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const token = localStorage.getItem('access_token');
       if (token) {
         try {
-          const response = await authService.getProfile();
+          const response = await orchesityService.getProfile();
           setUser(response.data);
         } catch (error) {
           localStorage.removeItem('access_token');
@@ -59,7 +59,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password: string) => {
     try {
       setLoading(true);
-      const response = await authService.login({ email, password });
+      const response = await orchesityService.login(email, password);
       localStorage.setItem('access_token', response.data.access_token);
       localStorage.setItem('refresh_token', response.data.refresh_token);
       setUser(response.data.user);
@@ -82,7 +82,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signup = async (email: string, password: string, name: string) => {
     try {
       setLoading(true);
-      const response = await authService.register({ email, password, name });
+      const response = await orchesityService.register(email, password, name);
       localStorage.setItem('access_token', response.data.access_token);
       localStorage.setItem('refresh_token', response.data.refresh_token);
       setUser(response.data.user);
@@ -104,7 +104,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const logout = async () => {
     try {
-      await authService.logout();
+      await orchesityService.logout();
     } catch (error) {
       console.error('Logout error:', error);
     } finally {
