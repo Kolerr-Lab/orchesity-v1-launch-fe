@@ -18,9 +18,15 @@ const Index = lazy(() =>
   )
 );
 
-const Auth = lazy(() => 
-  import("@/pages/Auth").catch(() => 
-    import("@/pages/Auth")
+const Login = lazy(() => 
+  import("@/pages/Login").catch(() => 
+    import("@/pages/Login")
+  )
+);
+
+const Register = lazy(() => 
+  import("@/pages/Register").catch(() => 
+    import("@/pages/Register")
   )
 );
 
@@ -175,27 +181,27 @@ const AgentDashboard = lazy(() =>
   )
 );
 
-const ExamplesGallery = lazy(() => 
-  import("@/pages/ExamplesGallery").catch(() => 
-    import("@/pages/ExamplesGallery")
+const Examples = lazy(() => 
+  import("@/pages/Examples").catch(() => 
+    import("@/pages/Examples")
   )
 );
 
-const BillingDashboard = lazy(() => 
-  import("@/pages/BillingDashboard").catch(() => 
-    import("@/pages/BillingDashboard")
+const Billing = lazy(() => 
+  import("@/pages/Billing").catch(() => 
+    import("@/pages/Billing")
   )
 );
 
-const DeploymentsList = lazy(() => 
-  import("@/pages/DeploymentsList").catch(() => 
-    import("@/pages/DeploymentsList")
+const Deployments = lazy(() => 
+  import("@/pages/Deployments").catch(() => 
+    import("@/pages/Deployments")
   )
 );
 
-const AdminPanel = lazy(() => 
-  import("@/pages/AdminPanel").catch(() => 
-    import("@/pages/AdminPanel")
+const Admin = lazy(() => 
+  import("@/pages/Admin").catch(() => 
+    import("@/pages/Admin")
   )
 );
 
@@ -227,7 +233,8 @@ const AppContent = () => {
           <Routes>
             {/* Core Pages */}
             <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/auth/github/callback" element={<AuthCallback />} />
             
@@ -238,7 +245,8 @@ const AppContent = () => {
             <Route path="/generate" element={<Generate />} />
             <Route path="/generate/status/:id" element={<GenerationStatus />} />
             <Route path="/generate/preview/:id" element={<ProjectPreview />} />
-            <Route path="/generate/examples" element={<ExamplesGallery />} />
+            <Route path="/generate/examples" element={<Examples />} />
+            <Route path="/examples" element={<Examples />} />
             
             {/* Agent Dashboard */}
             <Route path="/agent" element={<AgentDashboard />} />
@@ -247,19 +255,13 @@ const AppContent = () => {
             <Route path="/agent/status" element={<AgentDashboard />} />
             
             {/* Billing & Subscription */}
-            <Route path="/billing" element={<BillingDashboard />} />
-            <Route path="/billing/plans" element={<BillingDashboard />} />
-            <Route path="/billing/history" element={<BillingDashboard />} />
+            <Route path="/billing" element={<Billing />} />
             
             {/* Project Management */}
-            <Route path="/deployments" element={<DeploymentsList />} />
-            <Route path="/integrations" element={<DeploymentsList />} />
-            <Route path="/repositories" element={<DeploymentsList />} />
+            <Route path="/deployments" element={<Deployments />} />
             
             {/* Admin Panel */}
-            <Route path="/admin/metrics" element={<AdminPanel />} />
-            <Route path="/admin/users" element={<AdminPanel />} />
-            <Route path="/admin/usage" element={<AdminPanel />} />
+            <Route path="/admin" element={<Admin />} />
             
             {/* Legacy Routes */}
             <Route path="/agents" element={<Agents />} />

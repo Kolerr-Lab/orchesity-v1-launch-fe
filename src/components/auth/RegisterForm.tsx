@@ -12,7 +12,7 @@ interface SignupFormProps {
   onToggleMode: () => void;
 }
 
-export const SignupForm = ({ onToggleMode }: SignupFormProps) => {
+export const RegisterForm = ({ onToggleMode }: SignupFormProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

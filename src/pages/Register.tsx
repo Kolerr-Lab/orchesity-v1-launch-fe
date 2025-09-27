@@ -1,11 +1,7 @@
-import { useState } from 'react';
-import { LoginForm } from '@/components/auth/LoginForm';
-import { SignupForm } from '@/components/auth/SignupForm';
+import { RegisterForm } from '@/components/auth/RegisterForm';
 import { GoBackButton } from '@/components/ui/go-back-button';
 
-export default function Auth() {
-  const [isLogin, setIsLogin] = useState(true);
-
+export default function Register() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="absolute top-4 left-4">
@@ -20,11 +16,7 @@ export default function Auth() {
             className="h-12 mx-auto mb-2"
           />
         </div>
-        {isLogin ? (
-          <LoginForm onToggleMode={() => setIsLogin(false)} />
-        ) : (
-          <SignupForm onToggleMode={() => setIsLogin(true)} />
-        )}
+        <RegisterForm onToggleMode={() => window.location.href = '/login'} />
       </div>
     </div>
   );
